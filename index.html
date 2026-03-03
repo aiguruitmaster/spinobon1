@@ -8,53 +8,64 @@
     
     
     
+    <!-- Schema.org Date Published -->
+    <meta itemprop="datePublished" content="2026-03-03">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
                     colors: {
                         brand: {
-                            dark: '#1a0505', // Deep burgundy/black background
-                            primary: '#e11d48', // Rose/Red accent
-                            secondary: '#fbbf24', // Yellow/Gold for CTAs
-                            surface: '#2c0b0e', // Lighter burgundy for cards
+                            primary: '#e11d48', // Rose-600
+                            secondary: '#be123c', // Rose-700
+                            dark: '#0f172a', // Slate-900
+                            accent: '#f59e0b', // Amber-500
                         }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "datePublished": "2026-03-03"
-    }
-    </script>
 
     <style>
-        /* Custom styles for game card shapes/gradients since no images allowed */
-        .game-card-gradient-1 { background: linear-gradient(135deg, #f59e0b, #b45309); }
-        .game-card-gradient-2 { background: linear-gradient(135deg, #ec4899, #be185d); }
-        .game-card-gradient-3 { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
-        .game-card-gradient-4 { background: linear-gradient(135deg, #10b981, #047857); }
-        
-        .brand-cta {
-            transition: all 0.2s ease-in-out;
+        body {
+            background-color: #020617; /* Slate 950 */
+            color: #e2e8f0;
         }
-        .brand-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.3);
+        .gradient-text {
+            background: linear-gradient(to right, #fb7185, #e11d48);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background: radial-gradient(circle at top center, #1e293b 0%, #020617 70%);
+        }
+        .game-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(225, 29, 72, 0.3);
+        }
+        .cta-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(245, 158, 11, 0); }
         }
     </style>
 
@@ -62,190 +73,196 @@
 <link rel="alternate" href="https://spinobon1/" hreflang="x-default" />
 <link rel="alternate" href="https://spinobon1/" hreflang="PL" />
 </head>
-<body class="bg-brand-dark text-gray-100 font-sans selection:bg-brand-primary selection:text-white flex flex-col min-h-screen">
+<body class="font-sans antialiased selection:bg-rose-500 selection:text-white flex flex-col min-h-screen">
 
     <!-- Sticky Header -->
-    <header class="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-sm border-b border-white/10 shadow-lg">
+    <header class="fixed w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
         <div class="container mx-auto px-4 h-16 flex items-center justify-between">
-            <!-- Brand Logo (Text) -->
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-brand-primary rounded flex items-center justify-center font-bold text-white text-xl">S</div>
-                <span class="text-2xl font-black tracking-tighter uppercase text-white dynamic-brand-name">Spinobon</span>
-            </div>
+            <!-- Brand Logo (Typography) -->
+            <a href="#" class="text-2xl font-black tracking-tighter flex items-center gap-2 text-white">
+                <i data-lucide="dices" class="w-8 h-8 text-rose-500"></i>
+                <span id="nav-brand-name">Spinobon</span>
+            </a>
 
-            <!-- Header Actions -->
-            <div class="flex items-center gap-3 md:gap-4">
-                <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hidden md:flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-white transition-colors">
-                    <i data-lucide="log-in" class="w-4 h-4"></i>
+            <!-- Desktop Actions -->
+            <div class="flex items-center gap-4">
+                <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hidden md:block text-sm font-semibold text-slate-300 hover:text-white transition-colors">
                     Zaloguj się
                 </a>
-                <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-brand-secondary text-brand-dark px-5 py-2 rounded-full font-bold text-sm hover:bg-yellow-300 transition-colors shadow-lg">
-                    Zarejestruj się
+                <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-rose-600 hover:bg-rose-700 text-white px-5 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg shadow-rose-900/20 flex items-center gap-2">
+                    <i data-lucide="user-plus" class="w-4 h-4"></i>
+                    Rejestracja
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative py-16 md:py-24 overflow-hidden">
-        <!-- Background decorative elements -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl opacity-20 pointer-events-none">
-            <div class="absolute top-10 left-10 w-64 h-64 bg-brand-primary rounded-full blur-[100px]"></div>
-            <div class="absolute bottom-10 right-10 w-64 h-64 bg-brand-secondary rounded-full blur-[100px]"></div>
-        </div>
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 hero-bg overflow-hidden">
+        <!-- Background Decorative Shapes -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl translate-y-1/2"></div>
 
-        <div class="container mx-auto px-4 relative z-10 text-center">
+        <div class="container mx-auto px-4 relative z-10 text-center max-w-4xl">
             <!-- Trust Badge -->
-            <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full border border-white/10 mb-8 backdrop-blur-md">
-                <i data-lucide="shield-check" class="w-4 h-4 text-brand-secondary"></i>
-                <span class="text-xs font-semibold tracking-wide text-gray-200 uppercase">2026 ZWERYFIKOWANE I LICENCJONOWANE</span>
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 text-amber-400 text-sm font-semibold mb-8 animate-fade-in-up">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                <span>2026 ZWERYFIKOWANE I LICENCJONOWANE</span>
             </div>
 
             <!-- Main Heading -->
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight tracking-tight">
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight">
                 spinobon
             </h1>
-            
-            <!-- Subtitle -->
-            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                spinobon — complete guide 2026
-            </p>
 
-            <!-- Dynamic Bonus Card -->
-            <div class="max-w-3xl mx-auto bg-gradient-to-r from-brand-surface to-brand-dark border border-brand-primary/30 p-8 rounded-2xl shadow-2xl mb-10 relative overflow-hidden group">
-                <div class="absolute -right-10 -top-10 w-40 h-40 bg-brand-primary/20 rounded-full blur-3xl group-hover:bg-brand-primary/30 transition-all"></div>
-                
-                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="text-left">
-                        <span class="text-brand-secondary font-bold uppercase text-sm tracking-wider mb-2 block">Oferta Powitalna</span>
-                        <div class="text-3xl md:text-5xl font-black text-white mb-2 dynamic-bonus-text">
-                            <!-- JS will inject bonus here -->
-                            Ładowanie bonusu...
-                        </div>
-                        <p class="text-gray-400 text-sm">Zarejestruj się i odbierz swój ekskluzywny pakiet startowy już dziś.</p>
-                    </div>
-                    <div class="flex-shrink-0">
-                         <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta inline-flex items-center justify-center bg-brand-secondary text-brand-dark text-lg font-bold px-8 py-4 rounded-xl hover:bg-yellow-300 shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all w-full md:w-auto">
-                            Odbierz Bonus
-                            <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
-                        </a>
-                    </div>
+            <!-- Dynamic Bonus Display -->
+            <div class="mb-8 p-6 bg-slate-800/30 rounded-2xl border border-slate-700/50 backdrop-blur-sm inline-block">
+                <p class="text-slate-400 text-sm uppercase tracking-widest font-bold mb-2">Oferta Powitalna</p>
+                <div id="hero-bonus" class="text-3xl md:text-5xl font-black text-amber-400 drop-shadow-sm">
+                    <!-- JS will inject bonus here -->
+                    Ładowanie bonusu...
                 </div>
             </div>
 
-            <p class="text-xs text-gray-500">*Obowiązuje regulamin. Graj odpowiedzialnie. 18+</p>
+            <!-- Description -->
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                spinobon — complete guide 2026
+            </p>
+
+            <!-- Primary CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta cta-pulse bg-amber-500 hover:bg-amber-600 text-slate-900 text-lg px-8 py-4 rounded-full font-black transition-all transform hover:scale-105 shadow-xl shadow-amber-500/20 w-full sm:w-auto flex justify-center items-center gap-2">
+                    <i data-lucide="play-circle" class="w-6 h-6"></i>
+                    GRAJ TERAZ
+                </a>
+                <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-slate-800 hover:bg-slate-700 text-white text-lg px-8 py-4 rounded-full font-bold transition-all border border-slate-700 w-full sm:w-auto flex justify-center items-center gap-2">
+                    <i data-lucide="gift" class="w-5 h-5"></i>
+                    Odbierz Bonus
+                </a>
+            </div>
+            
+            <p class="mt-4 text-xs text-slate-500">*Obowiązuje regulamin. Graj odpowiedzialnie. 18+</p>
         </div>
     </section>
 
     <!-- Quick Benefits (USPs) -->
-    <section class="py-12 bg-brand-surface border-y border-white/5">
+    <section class="py-12 bg-slate-900 border-y border-slate-800">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Benefit 1 -->
-                <div class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors">
-                    <div class="w-12 h-12 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0 text-brand-primary">
-                        <i data-lucide="zap" class="w-6 h-6"></i>
+                <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-800/50 transition-colors">
+                    <div class="p-3 bg-rose-500/10 rounded-lg text-rose-500">
+                        <i data-lucide="zap" class="w-8 h-8"></i>
                     </div>
                     <div>
-                        <h3 class="text-white font-bold text-lg mb-1">Szybkie Wypłaty</h3>
-                        <p class="text-gray-400 text-sm">Błyskawiczne przetwarzanie transakcji i bezpieczne wypłaty wygranych środków.</p>
+                        <h3 class="text-lg font-bold text-white mb-1">Błyskawiczne Wypłaty</h3>
+                        <p class="text-slate-400 text-sm">Wypłacaj swoje wygrane w kilka minut dzięki systemom natychmiastowych płatności.</p>
                     </div>
                 </div>
                 <!-- Benefit 2 -->
-                <div class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors">
-                    <div class="w-12 h-12 rounded-lg bg-brand-secondary/20 flex items-center justify-center flex-shrink-0 text-brand-secondary">
-                        <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+                <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-800/50 transition-colors">
+                    <div class="p-3 bg-rose-500/10 rounded-lg text-rose-500">
+                        <i data-lucide="shield-check" class="w-8 h-8"></i>
                     </div>
                     <div>
-                        <h3 class="text-white font-bold text-lg mb-1">Tysiące Gier</h3>
-                        <p class="text-gray-400 text-sm">Dostęp do najlepszych slotów, gier stołowych i kasyna na żywo od topowych dostawców.</p>
+                        <h3 class="text-lg font-bold text-white mb-1">Pełne Bezpieczeństwo</h3>
+                        <p class="text-slate-400 text-sm">Twoje dane są chronione najnowszą technologią szyfrowania SSL.</p>
                     </div>
                 </div>
                 <!-- Benefit 3 -->
-                <div class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors">
-                    <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0 text-green-500">
-                        <i data-lucide="smartphone" class="w-6 h-6"></i>
+                <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-800/50 transition-colors">
+                    <div class="p-3 bg-rose-500/10 rounded-lg text-rose-500">
+                        <i data-lucide="smartphone" class="w-8 h-8"></i>
                     </div>
                     <div>
-                        <h3 class="text-white font-bold text-lg mb-1">Wersja Mobilna</h3>
-                        <p class="text-gray-400 text-sm">Pełna optymalizacja dla urządzeń mobilnych. Graj gdziekolwiek jesteś bez instalacji.</p>
+                        <h3 class="text-lg font-bold text-white mb-1">Wersja Mobilna</h3>
+                        <p class="text-slate-400 text-sm">Graj w ulubione sloty na telefonie i tablecie bez konieczności pobierania aplikacji.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Games Showcase (CSS Only - No Images) -->
-    <section class="py-20 bg-brand-dark">
+    <!-- Featured Games Showcase (No Images) -->
+    <section class="py-20 bg-slate-950">
         <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between mb-10">
-                <h2 class="text-3xl font-bold text-white">Popularne Gry Kasynowe</h2>
-                <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta text-brand-secondary hover:text-white font-semibold flex items-center gap-1 text-sm">
-                    Zobacz wszystkie <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Najpopularniejsze Gry</h2>
+                <p class="text-slate-400">Odkryj tysiące emocjonujących tytułów w <span class="brand-name-text text-rose-500 font-bold">Spinobon</span></p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <!-- Slot Card -->
+                <div class="game-card group relative h-48 md:h-64 rounded-2xl bg-gradient-to-br from-purple-900 to-indigo-900 border border-indigo-700/30 overflow-hidden flex flex-col items-center justify-center p-6 text-center">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                    <i data-lucide="cherry" class="w-16 h-16 text-purple-300 mb-4 transform group-hover:scale-110 transition-transform duration-300"></i>
+                    <h3 class="relative z-10 text-xl font-bold text-white">Automaty</h3>
+                    <p class="relative z-10 text-xs text-indigo-200 mt-1">Jackpoty & Klasyki</p>
+                    
+                    <!-- Hover Action -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/80 backdrop-blur-sm">
+                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-rose-600 text-white px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Zagraj
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Live Casino Card -->
+                <div class="game-card group relative h-48 md:h-64 rounded-2xl bg-gradient-to-br from-rose-900 to-red-900 border border-rose-700/30 overflow-hidden flex flex-col items-center justify-center p-6 text-center">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                    <i data-lucide="users" class="w-16 h-16 text-rose-300 mb-4 transform group-hover:scale-110 transition-transform duration-300"></i>
+                    <h3 class="relative z-10 text-xl font-bold text-white">Kasyno Na Żywo</h3>
+                    <p class="relative z-10 text-xs text-rose-200 mt-1">Ruletka & Blackjack</p>
+                    
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/80 backdrop-blur-sm">
+                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-rose-600 text-white px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Zagraj
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Table Games Card -->
+                <div class="game-card group relative h-48 md:h-64 rounded-2xl bg-gradient-to-br from-emerald-900 to-teal-900 border border-emerald-700/30 overflow-hidden flex flex-col items-center justify-center p-6 text-center">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                    <i data-lucide="club" class="w-16 h-16 text-emerald-300 mb-4 transform group-hover:scale-110 transition-transform duration-300"></i>
+                    <h3 class="relative z-10 text-xl font-bold text-white">Gry Stołowe</h3>
+                    <p class="relative z-10 text-xs text-emerald-200 mt-1">Poker & Baccarat</p>
+                    
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/80 backdrop-blur-sm">
+                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-rose-600 text-white px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Zagraj
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Instant Win Card -->
+                <div class="game-card group relative h-48 md:h-64 rounded-2xl bg-gradient-to-br from-amber-900 to-orange-900 border border-amber-700/30 overflow-hidden flex flex-col items-center justify-center p-6 text-center">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                    <i data-lucide="zap" class="w-16 h-16 text-amber-300 mb-4 transform group-hover:scale-110 transition-transform duration-300"></i>
+                    <h3 class="relative z-10 text-xl font-bold text-white">Szybkie Gry</h3>
+                    <p class="relative z-10 text-xs text-amber-200 mt-1">Aviator & Plinko</p>
+                    
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/80 backdrop-blur-sm">
+                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-rose-600 text-white px-6 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            Zagraj
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta inline-flex items-center gap-2 text-rose-500 font-semibold hover:text-rose-400 transition-colors">
+                    Zobacz wszystkie gry
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Game Card 1 -->
-                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer">
-                    <div class="absolute inset-0 game-card-gradient-1 flex flex-col items-center justify-center p-6 text-center transform group-hover:scale-105 transition-transform duration-500">
-                        <i data-lucide="crown" class="w-16 h-16 text-white/90 mb-4 drop-shadow-lg"></i>
-                        <span class="text-white font-black text-xl uppercase tracking-wider drop-shadow-md">Royal Slots</span>
-                    </div>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-white text-brand-dark font-bold py-2 px-6 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                            Graj Teraz
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Game Card 2 -->
-                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer">
-                    <div class="absolute inset-0 game-card-gradient-2 flex flex-col items-center justify-center p-6 text-center transform group-hover:scale-105 transition-transform duration-500">
-                        <i data-lucide="gem" class="w-16 h-16 text-white/90 mb-4 drop-shadow-lg"></i>
-                        <span class="text-white font-black text-xl uppercase tracking-wider drop-shadow-md">Diamond Wins</span>
-                    </div>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-white text-brand-dark font-bold py-2 px-6 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                            Graj Teraz
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Game Card 3 -->
-                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer">
-                    <div class="absolute inset-0 game-card-gradient-3 flex flex-col items-center justify-center p-6 text-center transform group-hover:scale-105 transition-transform duration-500">
-                        <i data-lucide="spade" class="w-16 h-16 text-white/90 mb-4 drop-shadow-lg"></i>
-                        <span class="text-white font-black text-xl uppercase tracking-wider drop-shadow-md">Blackjack Pro</span>
-                    </div>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-white text-brand-dark font-bold py-2 px-6 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                            Graj Teraz
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Game Card 4 -->
-                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer">
-                    <div class="absolute inset-0 game-card-gradient-4 flex flex-col items-center justify-center p-6 text-center transform group-hover:scale-105 transition-transform duration-500">
-                        <i data-lucide="clover" class="w-16 h-16 text-white/90 mb-4 drop-shadow-lg"></i>
-                        <span class="text-white font-black text-xl uppercase tracking-wider drop-shadow-md">Lucky Irish</span>
-                    </div>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-white text-brand-dark font-bold py-2 px-6 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                            Graj Teraz
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- SEO Content Section -->
-    <section class="py-16 bg-brand-surface">
-        <div class="container mx-auto px-4">
-            <div class="prose prose-invert prose-headings:text-white prose-a:text-brand-secondary max-w-4xl mx-auto">
-                
+    <!-- SEO Article Content -->
+    <section class="py-16 bg-slate-900 text-slate-300">
+        <div class="container mx-auto px-4 max-w-4xl prose prose-invert prose-headings:text-white prose-a:text-rose-500 prose-strong:text-white">
+            
 <style>
   .n8n-article-content h2 { font-weight: 700 !important; margin: 2.5rem 0 1rem 0 !important; }
   .n8n-article-content h3 { font-weight: 600 !important; margin: 1.5rem 0 0.75rem 0 !important; }
@@ -594,45 +611,32 @@
 
 </div>
 
-            </div>
         </div>
     </section>
 
     <!-- Payment Methods -->
-    <section class="py-12 border-t border-white/5 bg-brand-dark">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-8">Obsługiwane Metody Płatności</h3>
-            <div class="flex flex-wrap justify-center gap-6 md:gap-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-300">
-                <!-- CSS/Icon representations of payments -->
-                <div class="flex items-center gap-2 border border-white/20 px-4 py-2 rounded">
-                    <i data-lucide="credit-card" class="w-5 h-5"></i>
-                    <span class="font-bold">VISA</span>
-                </div>
-                <div class="flex items-center gap-2 border border-white/20 px-4 py-2 rounded">
-                    <i data-lucide="credit-card" class="w-5 h-5"></i>
-                    <span class="font-bold">Mastercard</span>
-                </div>
-                <div class="flex items-center gap-2 border border-white/20 px-4 py-2 rounded">
-                    <i data-lucide="wallet" class="w-5 h-5"></i>
-                    <span class="font-bold">BLIK</span>
-                </div>
-                <div class="flex items-center gap-2 border border-white/20 px-4 py-2 rounded">
-                    <i data-lucide="bitcoin" class="w-5 h-5"></i>
-                    <span class="font-bold">Bitcoin</span>
-                </div>
-                <div class="flex items-center gap-2 border border-white/20 px-4 py-2 rounded">
-                    <i data-lucide="banknote" class="w-5 h-5"></i>
-                    <span class="font-bold">Skrill</span>
-                </div>
+    <section class="py-12 bg-slate-950 border-t border-slate-800">
+        <div class="container mx-auto px-4">
+            <h3 class="text-center text-slate-500 uppercase text-xs font-bold tracking-widest mb-8">Dostępne Metody Płatności</h3>
+            <div class="flex flex-wrap justify-center gap-6 md:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Text/Icon based logos for compliance with "No Images" rule -->
+                <div class="flex items-center gap-2 text-white font-bold text-xl"><i data-lucide="credit-card" class="w-6 h-6"></i> VISA</div>
+                <div class="flex items-center gap-2 text-white font-bold text-xl"><i data-lucide="credit-card" class="w-6 h-6"></i> Mastercard</div>
+                <div class="flex items-center gap-2 text-white font-bold text-xl"><i data-lucide="smartphone" class="w-6 h-6"></i> BLIK</div>
+                <div class="flex items-center gap-2 text-white font-bold text-xl"><i data-lucide="bitcoin" class="w-6 h-6"></i> Bitcoin</div>
+                <div class="flex items-center gap-2 text-white font-bold text-xl"><i data-lucide="wallet" class="w-6 h-6"></i> Skrill</div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-16 bg-brand-surface/50">
+    <section class="py-16 bg-slate-900">
         <div class="container mx-auto px-4 max-w-3xl">
-            <div id="faq" class="space-y-6">
-                <h2 class="text-3xl font-bold text-center text-white mb-8">FAQ</h2>
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-white">FAQ</h2>
+            </div>
+            
+            <div id="faq" class="space-y-4">
                 
 <div class="border border-slate-700 hover:border-slate-500 transition-colors rounded-lg bg-slate-900/50 overflow-hidden cursor-pointer mb-4" onclick="toggleFaq(0)">
     <div class="flex justify-between items-center p-4">
@@ -688,82 +692,89 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#0f0303] pt-16 pb-8 border-t border-white/10 text-gray-400 text-sm">
+    <footer class="bg-slate-950 border-t border-slate-800 pt-16 pb-8">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-                <!-- Brand Column -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Info -->
                 <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-6 h-6 bg-brand-primary rounded flex items-center justify-center font-bold text-white text-xs">S</div>
-                        <span class="text-xl font-bold text-white uppercase dynamic-brand-name">Spinobon</span>
+                    <div class="flex items-center gap-2 text-white text-2xl font-black mb-4">
+                        <i data-lucide="dices" class="w-6 h-6 text-rose-500"></i>
+                        <span class="brand-name-text">Spinobon</span>
                     </div>
-                    <p class="mb-6 leading-relaxed">
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
                         Niezależny serwis porównawczy.
                     </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                            <span class="font-bold text-xs">18+</span>
-                        </div>
-                        <i data-lucide="shield" class="w-5 h-5 text-gray-500"></i>
-                        <i data-lucide="lock" class="w-5 h-5 text-gray-500"></i>
+                    <div class="flex gap-4">
+                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta text-slate-400 hover:text-white transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta text-slate-400 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta text-slate-400 hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
                     </div>
                 </div>
 
-                <!-- Links Column 1 -->
+                <!-- Quick Links -->
                 <div>
-                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider">Kasyno</h4>
-                    <ul class="space-y-2">
-                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Gry Slotowe</a></li>
-                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Kasyno na Żywo</a></li>
-                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Promocje</a></li>
-                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Program VIP</a></li>
+                    <h4 class="text-white font-bold mb-4">Menu</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-rose-500 transition-colors">Gry</a></li>
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-rose-500 transition-colors">Promocje</a></li>
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-rose-500 transition-colors">Program VIP</a></li>
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-rose-500 transition-colors">Pomoc</a></li>
                     </ul>
                 </div>
 
-                <!-- Links Column 2 -->
+                <!-- Legal -->
                 <div>
-                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider">Pomoc</h4>
-                    <ul class="space-y-2">
-                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">O Nas</a></li>
-                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Kontakt</a></li>
-                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Regulamin</a></li>
-                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Polityka Prywatności</a></li>
+                    <h4 class="text-white font-bold mb-4">Informacje</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-rose-500 transition-colors">O Nas</a></li>
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-rose-500 transition-colors">Regulamin</a></li>
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-rose-500 transition-colors">Prywatność</a></li>
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-rose-500 transition-colors">Odpowiedzialna Gra</a></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Disclaimer -->
-            <div class="border-t border-white/10 pt-8 mt-8 text-xs text-gray-500 text-center leading-relaxed">
-                <p class="mb-4">Hazard może uzależniać. Graj odpowiedzialnie. 18+</p>
-                <p>&copy; 2026 <span class="dynamic-brand-name">Spinobon</span>. Wszelkie prawa zastrzeżone.</p>
+            <div class="border-t border-slate-800 pt-8 mt-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-2 text-slate-500 text-sm">
+                        <div class="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center text-rose-500 font-bold">18+</div>
+                        <span>Hazard może uzależniać. Graj odpowiedzialnie. 18+</span>
+                    </div>
+                    <p class="text-slate-600 text-sm">
+                        &copy; 2026 <span class="brand-name-text">Spinobon</span>. Wszelkie prawa zastrzeżone.
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- JavaScript Logic -->
     <script>
-        // Data Injection
-        const casinos = [{"rank":1,"name":"Spinobon","rating":4.8,"bonus":"100% do 2000 PLN + 200 darmowych spinów","highlights":["Ponad 2000 gier od czołowych dostawców","Wypłaty w ciągu 24 godzin","Wsparcie kryptowalut i e-portfeli","Program lojalnościowy VIP"],"pros":["Bogaty wybór gier live casino","Hojne bonusy i regularne promocje","Profesjonalna obsługa klienta 24/7","Brak podatku od wygranych dla graczy","Elastyczne limity wpłat i wypłat"],"cons":["Wymaga weryfikacji tożsamości przy pierwszej wypłacie","Brak polskiej licencji (działa na licencji międzynarodowej)"],"payments":["Visa","Mastercard","Skrill","Neteller","Bitcoin","Ethereum","Paysafecard","MuchBetter"],"link":"https://afflink.com?utm-source-test=20bet","url":"https://afflink.com?utm-source-test=20bet","href":"https://afflink.com?utm-source-test=20bet","payout":"Immediato","highlight":"Ponad 2000 gier od czołowych dostawców","features":["Ponad 2000 gier od czołowych dostawców"]}];
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Icons
             lucide.createIcons();
 
-            // Brand Data Extraction
+            // Backend Data Injection
+            const casinos = [{"rank":1,"name":"Spinobon","rating":4.8,"bonus":"100% do 2000 PLN + 200 darmowych spinów","highlights":["Ponad 2000 gier od czołowych dostawców","Wypłaty w ciągu 24 godzin","Wsparcie kryptowalut i e-portfeli","Program lojalnościowy VIP"],"pros":["Bogaty wybór gier live casino","Hojne bonusy i regularne promocje","Profesjonalna obsługa klienta 24/7","Brak podatku od wygranych dla graczy","Elastyczne limity wpłat i wypłat"],"cons":["Wymaga weryfikacji tożsamości przy pierwszej wypłacie","Brak polskiej licencji (działa na licencji międzynarodowej)"],"payments":["Visa","Mastercard","Skrill","Neteller","Bitcoin","Ethereum","Paysafecard","MuchBetter"],"link":"https://afflink.com?utm-source-test=20bet","url":"https://afflink.com?utm-source-test=20bet","href":"https://afflink.com?utm-source-test=20bet","payout":"Immediato","highlight":"Ponad 2000 gier od czołowych dostawców","features":["Ponad 2000 gier od czołowych dostawców"]}];
+            
+            // Logic to extract primary brand data
             if (casinos && casinos.length > 0) {
                 const brand = casinos[0];
                 
-                // Inject Brand Name
-                const brandNameElements = document.querySelectorAll('.dynamic-brand-name');
+                // Update Brand Name everywhere
+                const brandNameElements = document.querySelectorAll('.brand-name-text');
                 brandNameElements.forEach(el => {
-                    if(brand.name) el.textContent = brand.name;
+                    el.textContent = brand.name || 'Spinobon';
                 });
+                
+                const navBrand = document.getElementById('nav-brand-name');
+                if(navBrand) navBrand.textContent = brand.name || 'Spinobon';
 
-                // Inject Bonus Text
-                const bonusElements = document.querySelectorAll('.dynamic-bonus-text');
-                bonusElements.forEach(el => {
-                    if(brand.bonus) el.innerHTML = brand.bonus;
-                });
+                // Update Bonus Text
+                const bonusElement = document.getElementById('hero-bonus');
+                if (bonusElement && brand.bonus) {
+                    bonusElement.innerHTML = brand.bonus;
+                }
             }
         });
     </script>
