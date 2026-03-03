@@ -7,23 +7,19 @@
     <meta name="description" content="spinobon — complete guide 2026">
     
     
-    <meta property="article:published_time" content="2026-03-02">
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#14050a',
-                            darker: '#0a0205',
-                            card: '#240a13',
-                            cardHover: '#360f1c',
-                            accent: '#eaff00',
-                            accentHover: '#d4e600'
+                            dark: '#1a0505', // Deep burgundy/black background
+                            primary: '#e11d48', // Rose/Red accent
+                            secondary: '#fbbf24', // Yellow/Gold for CTAs
+                            surface: '#2c0b0e', // Lighter burgundy for cards
                         }
                     },
                     fontFamily: {
@@ -34,281 +30,222 @@
         }
     </script>
     
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "datePublished": "2026-03-03"
+    }
+    </script>
+
     <style>
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #14050a; }
-        ::-webkit-scrollbar-thumb { background: #360f1c; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #eaff00; }
-
-        /* Article Content Styling for Injected HTML */
-        .article-content { color: #d1d5db; line-height: 1.8; }
-        .article-content h2 { color: #eaff00; font-size: 2rem; font-weight: 800; margin-top: 2.5rem; margin-bottom: 1.25rem; line-height: 1.2;}
-        .article-content h3 { color: #eaff00; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-        .article-content p { margin-bottom: 1.25rem; }
-        .article-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
-        .article-content li { margin-bottom: 0.5rem; }
-        .article-content strong { color: #ffffff; }
-        .article-content table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; margin-bottom: 2rem; background-color: #240a13; border-radius: 0.5rem; overflow: hidden; }
-        .article-content th, .article-content td { border: 1px solid #360f1c; padding: 1rem; text-align: left; }
-        .article-content th { background-color: #14050a; color: #eaff00; font-weight: 700; }
-        .article-content a { color: #eaff00; text-decoration: underline; text-underline-offset: 4px; }
-
-        /* FAQ Styling */
-        .faq-wrapper details { background-color: #240a13; border: 1px solid #360f1c; border-radius: 0.75rem; margin-bottom: 1rem; overflow: hidden; }
-        .faq-wrapper summary { padding: 1.25rem; font-weight: 600; color: #ffffff; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-        .faq-wrapper summary::-webkit-details-marker { display: none; }
-        .faq-wrapper summary:after { content: "+"; color: #eaff00; font-size: 1.5rem; }
-        .faq-wrapper details[open] summary:after { content: "-"; }
-        .faq-wrapper .faq-content { padding: 0 1.25rem 1.25rem; color: #9ca3af; }
+        /* Custom styles for game card shapes/gradients since no images allowed */
+        .game-card-gradient-1 { background: linear-gradient(135deg, #f59e0b, #b45309); }
+        .game-card-gradient-2 { background: linear-gradient(135deg, #ec4899, #be185d); }
+        .game-card-gradient-3 { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .game-card-gradient-4 { background: linear-gradient(135deg, #10b981, #047857); }
         
-        /* Fallback for unformatted injected FAQ items */
-        .faq-wrapper h3 { color: #ffffff; font-size: 1.125rem; font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; }
-        .faq-wrapper p { color: #9ca3af; margin-bottom: 1rem; }
+        .brand-cta {
+            transition: all 0.2s ease-in-out;
+        }
+        .brand-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.3);
+        }
     </style>
 
 <link rel="canonical" href="https://spinobon1/" />
 <link rel="alternate" href="https://spinobon1/" hreflang="x-default" />
 <link rel="alternate" href="https://spinobon1/" hreflang="PL" />
 </head>
-<body class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-accent selection:text-black">
+<body class="bg-brand-dark text-gray-100 font-sans selection:bg-brand-primary selection:text-white flex flex-col min-h-screen">
 
     <!-- Sticky Header -->
-    <header class="fixed top-0 w-full z-50 bg-brand-dark/95 backdrop-blur-md border-b border-brand-card transition-all duration-300">
-        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+    <header class="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-sm border-b border-white/10 shadow-lg">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <!-- Brand Logo (Text) -->
             <div class="flex items-center gap-2">
-                <img src="" alt="Casino Logo" class="brand-logo h-10 object-contain">
-                <span class="brand-name text-2xl font-black text-white hidden md:block tracking-tight"></span>
+                <div class="w-8 h-8 bg-brand-primary rounded flex items-center justify-center font-bold text-white text-xl">S</div>
+                <span class="text-2xl font-black tracking-tighter uppercase text-white dynamic-brand-name">Spinobon</span>
             </div>
-            
-            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
-                <a href="#games" class="hover:text-brand-accent transition-colors">Games</a>
-                <a href="#promotions" class="hover:text-brand-accent transition-colors">Promotions</a>
-                <a href="#about" class="hover:text-brand-accent transition-colors">About</a>
-                <a href="#faq" class="hover:text-brand-accent transition-colors">FAQ</a>
-            </nav>
 
-            <div class="flex items-center gap-3">
-                <a href="#" class="brand-cta hidden sm:flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-transparent border border-gray-600 rounded-full hover:border-white hover:text-white transition-all">
-                    Login
+            <!-- Header Actions -->
+            <div class="flex items-center gap-3 md:gap-4">
+                <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hidden md:flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-white transition-colors">
+                    <i data-lucide="log-in" class="w-4 h-4"></i>
+                    Zaloguj się
                 </a>
-                <a href="#" class="brand-cta flex items-center justify-center px-6 py-2.5 text-sm font-bold text-black bg-brand-accent rounded-full hover:bg-brand-accentHover hover:scale-105 transition-all shadow-[0_0_15px_rgba(234,255,0,0.2)]">
-                    Sign Up
+                <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-brand-secondary text-brand-dark px-5 py-2 rounded-full font-bold text-sm hover:bg-yellow-300 transition-colors shadow-lg">
+                    Zarejestruj się
                 </a>
             </div>
         </div>
     </header>
 
-    <main class="pt-20">
-        <!-- Hero Section -->
-        <section class="relative pt-16 pb-24 px-4 overflow-hidden flex flex-col items-center justify-center min-h-[80vh] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-card via-brand-dark to-brand-dark">
-            <!-- Background Elements -->
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-brand-accent/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <!-- Hero Section -->
+    <section class="relative py-16 md:py-24 overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl opacity-20 pointer-events-none">
+            <div class="absolute top-10 left-10 w-64 h-64 bg-brand-primary rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-10 right-10 w-64 h-64 bg-brand-secondary rounded-full blur-[100px]"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <!-- Trust Badge -->
+            <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full border border-white/10 mb-8 backdrop-blur-md">
+                <i data-lucide="shield-check" class="w-4 h-4 text-brand-secondary"></i>
+                <span class="text-xs font-semibold tracking-wide text-gray-200 uppercase">2026 ZWERYFIKOWANE I LICENCJONOWANE</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight tracking-tight">
+                spinobon
+            </h1>
             
-            <div class="container mx-auto max-w-4xl text-center relative z-10">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-card border border-brand-cardHover mb-8">
-                    <i data-lucide="star" class="w-4 h-4 text-brand-accent fill-brand-accent"></i>
-                    <span class="text-xs font-bold tracking-wider text-brand-accent uppercase">Premium Casino Experience</span>
-                </div>
+            <!-- Subtitle -->
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                spinobon — complete guide 2026
+            </p>
+
+            <!-- Dynamic Bonus Card -->
+            <div class="max-w-3xl mx-auto bg-gradient-to-r from-brand-surface to-brand-dark border border-brand-primary/30 p-8 rounded-2xl shadow-2xl mb-10 relative overflow-hidden group">
+                <div class="absolute -right-10 -top-10 w-40 h-40 bg-brand-primary/20 rounded-full blur-3xl group-hover:bg-brand-primary/30 transition-all"></div>
                 
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-                    spinobon
-                </h1>
-                
-                <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                    spinobon — complete guide 2026
-                </p>
-
-                <!-- Main Offer Box -->
-                <div class="bg-brand-card/80 backdrop-blur-sm border border-brand-cardHover rounded-3xl p-8 md:p-12 mb-8 shadow-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-500"></div>
-                    
-                    <p class="text-sm text-gray-400 uppercase tracking-widest font-semibold mb-3">Exclusive Welcome Bonus</p>
-                    <div class="text-4xl md:text-6xl font-black text-brand-accent brand-bonus mb-8 drop-shadow-lg">
-                        Loading Offer...
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="text-left">
+                        <span class="text-brand-secondary font-bold uppercase text-sm tracking-wider mb-2 block">Oferta Powitalna</span>
+                        <div class="text-3xl md:text-5xl font-black text-white mb-2 dynamic-bonus-text">
+                            <!-- JS will inject bonus here -->
+                            Ładowanie bonusu...
+                        </div>
+                        <p class="text-gray-400 text-sm">Zarejestruj się i odbierz swój ekskluzywny pakiet startowy już dziś.</p>
                     </div>
-                    
-                    <a href="#" class="brand-cta inline-flex items-center justify-center gap-3 bg-brand-accent text-black text-xl font-bold py-5 px-12 rounded-full hover:bg-brand-accentHover hover:-translate-y-1 transition-all duration-300 shadow-[0_0_30px_rgba(234,255,0,0.3)] w-full sm:w-auto">
-                        Claim Bonus Now
-                        <i data-lucide="arrow-right" class="w-6 h-6"></i>
-                    </a>
-                    
-                    <div class="mt-6 flex items-center justify-center gap-2 text-sm text-gray-500">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i>
-                        <span>2026 ZWERYFIKOWANY I BEZPIECZNY</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Promo Cards (Visual Match to Screenshot) -->
-        <section id="promotions" class="py-12 px-4 bg-brand-darker border-y border-brand-card">
-            <div class="container mx-auto max-w-6xl">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Card 1 -->
-                    <div class="bg-gradient-to-br from-[#4a0f24] to-brand-card rounded-2xl p-6 relative overflow-hidden border border-brand-cardHover">
-                        <i data-lucide="gift" class="absolute -right-4 -bottom-4 w-32 h-32 text-white/5"></i>
-                        <div class="text-xs font-bold text-white/60 mb-2 uppercase tracking-wider">Welcome Offer</div>
-                        <h3 class="text-2xl font-bold text-white mb-4 w-2/3 brand-bonus">Loading...</h3>
-                        <a href="#" class="brand-cta text-sm text-brand-accent font-semibold hover:underline flex items-center gap-1">
-                            T&Cs Apply. Claim Now <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="bg-gradient-to-br from-[#3d1022] to-brand-card rounded-2xl p-6 relative overflow-hidden border border-brand-cardHover">
-                        <i data-lucide="dices" class="absolute -right-4 -bottom-4 w-32 h-32 text-white/5"></i>
-                        <div class="text-xs font-bold text-white/60 mb-2 uppercase tracking-wider">Weekly Reload</div>
-                        <h3 class="text-2xl font-bold text-white mb-4 w-3/4">Get up to 75 Free Spins every weekend</h3>
-                        <a href="#" class="brand-cta text-sm text-brand-accent font-semibold hover:underline flex items-center gap-1">
-                            T&Cs Apply. Tell me more <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="bg-gradient-to-br from-[#2d0b17] to-brand-card rounded-2xl p-6 relative overflow-hidden border border-brand-cardHover">
-                        <i data-lucide="coins" class="absolute -right-4 -bottom-4 w-32 h-32 text-white/5"></i>
-                        <div class="text-xs font-bold text-white/60 mb-2 uppercase tracking-wider">Cashback</div>
-                        <h3 class="text-2xl font-bold text-white mb-4 w-3/4">Up to 10% Weekly Cashback on Net Losses</h3>
-                        <a href="#" class="brand-cta text-sm text-brand-accent font-semibold hover:underline flex items-center gap-1">
-                            T&Cs Apply. Tell me more <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    <div class="flex-shrink-0">
+                         <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta inline-flex items-center justify-center bg-brand-secondary text-brand-dark text-lg font-bold px-8 py-4 rounded-xl hover:bg-yellow-300 shadow-[0_0_20px_rgba(251,191,36,0.4)] transition-all w-full md:w-auto">
+                            Odbierz Bonus
+                            <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
                         </a>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Quick Benefits -->
-        <section class="py-16 px-4 bg-brand-dark">
-            <div class="container mx-auto max-w-6xl">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-brand-card/50 border border-brand-card hover:bg-brand-card transition-colors">
-                        <div class="w-14 h-14 rounded-full bg-brand-darker flex items-center justify-center mb-4 border border-brand-cardHover text-brand-accent">
-                            <i data-lucide="zap" class="w-7 h-7"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Instant Withdrawals</h3>
-                        <p class="text-sm text-gray-400">Get your winnings fast with our optimized payment processing system.</p>
-                    </div>
-                    <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-brand-card/50 border border-brand-card hover:bg-brand-card transition-colors">
-                        <div class="w-14 h-14 rounded-full bg-brand-darker flex items-center justify-center mb-4 border border-brand-cardHover text-brand-accent">
-                            <i data-lucide="headset" class="w-7 h-7"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">24/7 Support</h3>
-                        <p class="text-sm text-gray-400">Our dedicated team is available around the clock to assist you.</p>
-                    </div>
-                    <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-brand-card/50 border border-brand-card hover:bg-brand-card transition-colors">
-                        <div class="w-14 h-14 rounded-full bg-brand-darker flex items-center justify-center mb-4 border border-brand-cardHover text-brand-accent">
-                            <i data-lucide="gamepad-2" class="w-7 h-7"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">5000+ Games</h3>
-                        <p class="text-sm text-gray-400">Massive selection of slots, live casino, and table games.</p>
+            <p class="text-xs text-gray-500">*Obowiązuje regulamin. Graj odpowiedzialnie. 18+</p>
+        </div>
+    </section>
 
+    <!-- Quick Benefits (USPs) -->
+    <section class="py-12 bg-brand-surface border-y border-white/5">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors">
+                    <div class="w-12 h-12 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0 text-brand-primary">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
                     </div>
-                    <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-brand-card/50 border border-brand-card hover:bg-brand-card transition-colors">
-                        <div class="w-14 h-14 rounded-full bg-brand-darker flex items-center justify-center mb-4 border border-brand-cardHover text-brand-accent">
-                            <i data-lucide="shield-check" class="w-7 h-7"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Fully Secure</h3>
-                        <p class="text-sm text-gray-400">State-of-the-art encryption to keep your data and funds safe.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured Games Showcase -->
-        <section id="games" class="py-16 px-4 bg-brand-darker">
-            <div class="container mx-auto max-w-6xl">
-                <div class="flex justify-between items-end mb-10">
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Top Games at <span class="brand-name text-brand-accent"></span></h2>
-                        <p class="text-gray-400">Experience the thrill with our most popular titles.</p>
-                    </div>
-                    <a href="#" class="brand-cta hidden sm:flex items-center gap-2 text-brand-accent font-semibold hover:text-brand-accentHover">
-                        View All Games <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    <!-- Game Mockups -->
-                    <div class="aspect-[3/4] rounded-xl bg-gradient-to-b from-purple-900 to-brand-card border border-brand-cardHover relative group overflow-hidden cursor-pointer">
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all"></div>
-                        <div class="absolute bottom-0 w-full p-3 bg-gradient-to-t from-black/90 to-transparent">
-                            <p class="text-white font-bold text-sm truncate">Gates of Olympus</p>
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 backdrop-blur-sm">
-                            <div class="w-12 h-12 rounded-full bg-brand-accent flex items-center justify-center text-black pl-1">
-                                <i data-lucide="play" class="w-6 h-6 fill-black"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="aspect-[3/4] rounded-xl bg-gradient-to-b from-green-900 to-brand-card border border-brand-cardHover relative group overflow-hidden cursor-pointer">
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all"></div>
-                        <div class="absolute bottom-0 w-full p-3 bg-gradient-to-t from-black/90 to-transparent">
-                            <p class="text-white font-bold text-sm truncate">Sweet Bonanza</p>
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 backdrop-blur-sm">
-                            <div class="w-12 h-12 rounded-full bg-brand-accent flex items-center justify-center text-black pl-1">
-                                <i data-lucide="play" class="w-6 h-6 fill-black"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="aspect-[3/4] rounded-xl bg-gradient-to-b from-blue-900 to-brand-card border border-brand-cardHover relative group overflow-hidden cursor-pointer">
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all"></div>
-                        <div class="absolute bottom-0 w-full p-3 bg-gradient-to-t from-black/90 to-transparent">
-                            <p class="text-white font-bold text-sm truncate">Big Bass Splash</p>
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 backdrop-blur-sm">
-                            <div class="w-12 h-12 rounded-full bg-brand-accent flex items-center justify-center text-black pl-1">
-                                <i data-lucide="play" class="w-6 h-6 fill-black"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="aspect-[3/4] rounded-xl bg-gradient-to-b from-red-900 to-brand-card border border-brand-cardHover relative group overflow-hidden cursor-pointer">
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all"></div>
-                        <div class="absolute bottom-0 w-full p-3 bg-gradient-to-t from-black/90 to-transparent">
-                            <p class="text-white font-bold text-sm truncate">Book of Dead</p>
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 backdrop-blur-sm">
-                            <div class="w-12 h-12 rounded-full bg-brand-accent flex items-center justify-center text-black pl-1">
-                                <i data-lucide="play" class="w-6 h-6 fill-black"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="aspect-[3/4] rounded-xl bg-gradient-to-b from-yellow-900 to-brand-card border border-brand-cardHover relative group overflow-hidden cursor-pointer hidden md:block">
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all"></div>
-                        <div class="absolute bottom-0 w-full p-3 bg-gradient-to-t from-black/90 to-transparent">
-                            <p class="text-white font-bold text-sm truncate">Starburst</p>
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 backdrop-blur-sm">
-                            <div class="w-12 h-12 rounded-full bg-brand-accent flex items-center justify-center text-black pl-1">
-                                <i data-lucide="play" class="w-6 h-6 fill-black"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="aspect-[3/4] rounded-xl bg-gradient-to-b from-teal-900 to-brand-card border border-brand-cardHover relative group overflow-hidden cursor-pointer hidden lg:block">
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all"></div>
-                        <div class="absolute bottom-0 w-full p-3 bg-gradient-to-t from-black/90 to-transparent">
-                            <p class="text-white font-bold text-sm truncate">Crazy Time Live</p>
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 backdrop-blur-sm">
-                            <div class="w-12 h-12 rounded-full bg-brand-accent flex items-center justify-center text-black pl-1">
-                                <i data-lucide="play" class="w-6 h-6 fill-black"></i>
-                            </div>
-                        </div>
+                        <h3 class="text-white font-bold text-lg mb-1">Szybkie Wypłaty</h3>
+                        <p class="text-gray-400 text-sm">Błyskawiczne przetwarzanie transakcji i bezpieczne wypłaty wygranych środków.</p>
                     </div>
                 </div>
-                
-                <div class="mt-8 text-center sm:hidden">
-                    <a href="#" class="brand-cta inline-flex items-center gap-2 text-brand-accent font-semibold border border-brand-accent px-6 py-2 rounded-full">
-                        View All Games
-                    </a>
+                <!-- Benefit 2 -->
+                <div class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors">
+                    <div class="w-12 h-12 rounded-lg bg-brand-secondary/20 flex items-center justify-center flex-shrink-0 text-brand-secondary">
+                        <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-1">Tysiące Gier</h3>
+                        <p class="text-gray-400 text-sm">Dostęp do najlepszych slotów, gier stołowych i kasyna na żywo od topowych dostawców.</p>
+                    </div>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors">
+                    <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0 text-green-500">
+                        <i data-lucide="smartphone" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-1">Wersja Mobilna</h3>
+                        <p class="text-gray-400 text-sm">Pełna optymalizacja dla urządzeń mobilnych. Graj gdziekolwiek jesteś bez instalacji.</p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SEO Article Section -->
-        <section id="about" class="py-20 px-4 bg-brand-dark">
-            <div class="container mx-auto max-w-4xl bg-brand-card/30 p-8 md:p-12 rounded-3xl border border-brand-cardHover">
-                <article class="article-content">
-                    
+    <!-- Featured Games Showcase (CSS Only - No Images) -->
+    <section class="py-20 bg-brand-dark">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between mb-10">
+                <h2 class="text-3xl font-bold text-white">Popularne Gry Kasynowe</h2>
+                <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta text-brand-secondary hover:text-white font-semibold flex items-center gap-1 text-sm">
+                    Zobacz wszystkie <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Game Card 1 -->
+                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer">
+                    <div class="absolute inset-0 game-card-gradient-1 flex flex-col items-center justify-center p-6 text-center transform group-hover:scale-105 transition-transform duration-500">
+                        <i data-lucide="crown" class="w-16 h-16 text-white/90 mb-4 drop-shadow-lg"></i>
+                        <span class="text-white font-black text-xl uppercase tracking-wider drop-shadow-md">Royal Slots</span>
+                    </div>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-white text-brand-dark font-bold py-2 px-6 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                            Graj Teraz
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Game Card 2 -->
+                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer">
+                    <div class="absolute inset-0 game-card-gradient-2 flex flex-col items-center justify-center p-6 text-center transform group-hover:scale-105 transition-transform duration-500">
+                        <i data-lucide="gem" class="w-16 h-16 text-white/90 mb-4 drop-shadow-lg"></i>
+                        <span class="text-white font-black text-xl uppercase tracking-wider drop-shadow-md">Diamond Wins</span>
+                    </div>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-white text-brand-dark font-bold py-2 px-6 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                            Graj Teraz
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Game Card 3 -->
+                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer">
+                    <div class="absolute inset-0 game-card-gradient-3 flex flex-col items-center justify-center p-6 text-center transform group-hover:scale-105 transition-transform duration-500">
+                        <i data-lucide="spade" class="w-16 h-16 text-white/90 mb-4 drop-shadow-lg"></i>
+                        <span class="text-white font-black text-xl uppercase tracking-wider drop-shadow-md">Blackjack Pro</span>
+                    </div>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-white text-brand-dark font-bold py-2 px-6 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                            Graj Teraz
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Game Card 4 -->
+                <div class="group relative aspect-[3/4] rounded-xl overflow-hidden cursor-pointer">
+                    <div class="absolute inset-0 game-card-gradient-4 flex flex-col items-center justify-center p-6 text-center transform group-hover:scale-105 transition-transform duration-500">
+                        <i data-lucide="clover" class="w-16 h-16 text-white/90 mb-4 drop-shadow-lg"></i>
+                        <span class="text-white font-black text-xl uppercase tracking-wider drop-shadow-md">Lucky Irish</span>
+                    </div>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="https://afflink.com?utm-source-test=20bet" class="brand-cta bg-white text-brand-dark font-bold py-2 px-6 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                            Graj Teraz
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Content Section -->
+    <section class="py-16 bg-brand-surface">
+        <div class="container mx-auto px-4">
+            <div class="prose prose-invert prose-headings:text-white prose-a:text-brand-secondary max-w-4xl mx-auto">
+                
 <style>
   .n8n-article-content h2 { font-weight: 700 !important; margin: 2.5rem 0 1rem 0 !important; }
   .n8n-article-content h3 { font-weight: 600 !important; margin: 1.5rem 0 0.75rem 0 !important; }
@@ -321,316 +258,529 @@
   .n8n-article-content a { color: #3b82f6 !important; text-decoration: underline !important; font-weight: 600 !important; }
 </style>
 <div class="n8n-article-content">
-  <h2>Co to jest Spinobon i jak działa?</h2>
+  
+<h2>BLOCK 1: Article HTML</h2>
 
-<p>Spinobon to preparat multiwitaminowy, który znajduje szerokie zastosowanie w leczeniu i profilaktyce niedoborów żywieniowych. Suplement ten zawiera starannie dobraną kompozycję składników aktywnych, w tym węglan wapnia, witaminę D3 oraz witaminy z grupy B, które wspólnie wspierają prawidłowe funkcjonowanie całego organizmu. Głównym zadaniem tego preparatu jest uzupełnienie braków niezbędnych substancji odżywczych, które mogą prowadzić do poważnych problemów zdrowotnych.</p>
+<h2>Czym jest Spinobon i kiedy się go stosuje w kasynach online?</h2>
 
-<p>Mechanizm działania opiera się na synergii pomiędzy poszczególnymi składnikami. Wapń wspiera budowę i utrzymanie prawidłowej struktury kości oraz zębów, podczas gdy witamina D3 zwiększa jego wchłanianie z przewodu pokarmowego. Witaminy z grupy B odgrywają kluczową rolę w metabolizmie energetycznym oraz prawidłowym funkcjonowaniu układu nerwowego. Dzięki kompleksowemu działaniu preparat pomaga złagodzić objawy związane z niedoborami, takie jak chroniczne zmęczenie, osłabienie czy problemy z koncentracją.</p>
+<p>Spinobon to nowoczesna platforma kasyna online, która zdobywa popularność wśród polskich graczy poszukujących bezpiecznej i atrakcyjnej rozrywki hazardowej w internecie. W świecie gier losowych, gdzie niedobory odpowiednich bonusów i promocji mogą znacząco wpłynąć na doświadczenie gracza, Spinobon oferuje kompleksowe rozwiązanie dla osób pragnących wzmocnić swój budżet do gry. Platforma ta została stworzona z myślą o graczach, którzy cenią sobie wysokiej jakości obsługę, bogaty wybór gier oraz uczciwe warunki rozgrywki.</p>
 
-<p>W organizmie ludzkim wiele procesów zależy od odpowiedniego poziomu witamin i minerałów. Niedobory żywieniowe mogą prowadzić do zaburzeń metabolicznych, osłabienia odporności oraz problemów z układem kostnym. Regularne przyjmowanie suplementu wspiera regenerację tkanek, poprawia ogólną kondycję organizmu oraz zwiększa odporność na infekcje. Dla osób z ryzykiem osteoporozy lub neuropatii preparat stanowi istotny element terapii wspomagającej.</p>
+<p>Spinobon działa jako pełnoprawne kasyno internetowe, oferujące szeroki wachlarz gier hazardowych – od klasycznych automatów do gier stołowych i rozgrywek na żywo z prawdziwymi krupierami. Głównym celem platformy jest zapewnienie graczom nie tylko rozrywki, ale również realnych szans na wygrane dzięki hojnym bonusom powitalnym i regularnym promocjom. System ten działa na zasadzie suplementacji budżetu gracza, pozwalając na dłuższą i bardziej ekscytującą rozgrywkę.</p>
 
-<h2>Główne wskazania do stosowania</h2>
+<h3>Skład oferty i mechanizmy działania platformy</h3>
 
-<p>Preparat znajduje zastosowanie w wielu sytuacjach klinicznych, w których organizm wymaga dodatkowego wsparcia żywieniowego. Najczęstsze wskazania obejmują stany niedoboru witamin i minerałów, które mogą wystąpić w wyniku niedostatecznej podaży tych składników w diecie, zwiększonego zapotrzebowania lub zaburzeń wchłaniania. Produkt stanowi również cenne uzupełnienie diety osób w podeszłym wieku, u których naturalne procesy przyswajania substancji odżywczych ulegają spowolnieniu.</p>
-<figure style="margin: 2.5rem 0; width: 100%; display: flex; justify-content: center;">
-  <img src="images/index-2.png" alt="spinobon1 info content 2" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);" loading="lazy" />
-</figure>
+<p>Spinobon opiera swoją ofertę na trzech fundamentalnych filarach: różnorodności gier, atrakcyjnym systemie bonusowym oraz bezpieczeństwie transakcji. Platforma współpracuje z renomowanymi dostawcami oprogramowania, co gwarantuje wysoką jakość gier i sprawiedliwe wyniki losowań. System bonusowy został zaprojektowany tak, aby wspierać zarówno nowych graczy, jak i stałych bywalców kasyna.</p>
 
+<p>Mechanizm działania platformy jest prosty i intuicyjny. Po rejestracji konta gracze otrzymują dostęp do pełnej biblioteki gier oraz mogą skorzystać z bonusu powitalnego, który znacząco zwiększa ich początkowy kapitał. System lojalnościowy nagradza regularną aktywność, oferując dodatkowe korzyści w postaci darmowych spinów, cashbacku oraz ekskluzywnych promocji. Wszystkie operacje finansowe są szyfrowane, co zapewnia pełne bezpieczeństwo środków graczy.</p>
 
-<p>Wzmocnienie organizmu to kolejny istotny obszar zastosowania. Osoby przechodzące период rekonwalescencji po chorobach, zabiegach chirurgicznych lub intensywnym leczeniu farmakologicznym mogą odnieść korzyści z systematycznego przyjmowania preparatu. Wspiera on odbudowę sił, poprawia samopoczucie oraz przyspiesza powrót do pełnej sprawności. System immunologiczny również czerpie korzyści z odpowiedniego poziomu witamin i minerałów.</p>
+<h2>Główne korzyści ze stosowania kasyna Spinobon</h2>
 
-<p>Profilaktyka osteoporozy stanowi szczególnie ważne wskazanie u kobiet po menopauzie oraz u osób z grup ryzyka. Regularne przyjmowanie odpowiedniej dawki wapnia i witaminy D3 pomaga utrzymać gęstość mineralną kości, zmniejszając ryzyko złamań. Preparat może być również zalecany osobom aktywnym fizycznie, u których zwiększone obciążenie układu kostno-mięśniowego wymaga dodatkowego wsparcia żywieniowego.</p>
-
-<h3>Leczenie niedoborów żywieniowych</h3>
-
-<p>Współczesny styl życia i nawyki żywieniowe często nie zapewniają organizmowi wszystkich niezbędnych składników w optymalnych ilościach. Przetworzona żywność, ograniczona różnorodność diety oraz nadmierne spożycie produktów o niskiej wartości odżywczej prowadzą do stopniowego uszczuplania zapasów witamin i minerałów w organizmie. Niedobory żywieniowe mogą rozwijać się latami, nie dając początkowo wyraźnych objawów.</p>
-
-<p>Niski poziom wapnia we krwi manifestuje się szeregiem niepokojących symptomów. Pacjenci skarżą się na drętwienie kończyn, skurcze mięśni, osłabienie oraz bóle kostne. W przypadkach długotrwałych niedoborów może dojść do osłabienia struktury kości, co zwiększa ryzyko złamań nawet przy niewielkich urazach. Niedobór witaminy D3 dodatkowo pogarsza przyswajanie wapnia, tworząc błędne koło deficytów.</p>
-
-<p>Niedobory witamin z grupy B wpływają negatywnie na funkcjonowanie układu nerwowego oraz procesy metaboliczne. Objawy mogą obejmować uczucie mrowienia w dłoniach i stopach, problemy z pamięcią, drażliwość oraz przewlekłe zmęczenie. Odpowiednie uzupełnienie tych substancji prowadzi do szybkiej poprawy samopoczucia i ustąpienia dolegliwości. Regularne badania krwi pozwalają monitorować poziom kluczowych składników i dostosowywać suplementację do indywidualnych potrzeb.</p>
-
-<h3>Wsparcie dla kości i układu nerwowego</h3>
-
-<p>Zdrowie kości zależy nie tylko od odpowiedniej podaży wapnia, ale także od obecności witaminy D3, która reguluje jego metabolizm w organizmie. Synergiczne działanie tych składników zapewnia prawidłową mineralizację tkanki kostnej, utrzymanie odpowiedniej gęstości oraz elastyczności kości. Systematyczne przyjmowanie preparatu wspiera procesy przebudowy kości, które zachodzą przez całe życie.</p>
-
-<p>Układ nerwowy wymaga stałego wsparcia żywieniowego dla zachowania prawidłowej przewodności nerwowej i ochrony włókien nerwowych. Witaminy z gruby B, szczególnie B12, odgrywają kluczową rolę w syntezie osłonek mielinowych oraz neurotransmiterów. Niedobory prowadzą do neuropatii obwodowej, objawiajacej się mrowienie, drętwienie oraz bólem kończyn. Funkcjonowanie nerwów ulega poprawie po zastosowaniu odpowiedniej suplementacji.</p>
-<figure style="margin: 2.5rem 0; width: 100%; display: flex; justify-content: center;">
-  <img src="images/index-3.png" alt="spinobon1 info content 3" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);" loading="lazy" />
-</figure>
-
-
-<p>Preparat wspiera również prawidłową budowę zębów oraz ich utrzymanie w dobrej kondycji. Wapń stanowi podstawowy składnik strukturalny szkliwa i zębiny. Osoby z niedoborami często doświadczają problemów stomatologicznych, w tym zwiększonej podatności na próchnicę. Kompleksowe działanie preparatu obejmuje więc nie tylko układ kostny, ale także wszystkie tkanki zmineralizowane w organizmie.</p>
-
-<h2>Składniki aktywne preparatu</h2>
-
-<p>Węglan wapnia stanowi podstawową formę wapnia wykorzystywaną w suplementacji. Ten związek chemiczny charakteryzuje się wysoką zawartością pierwiastka oraz dobrą tolerancją przez przewód pokarmowy. Wapń uczestniczy w wielu procesach fizjologicznych, od budowy kości po przekazywanie impulsów nerwowych i kurczliwość mięśni. Organizm dorosłego człowieka zawiera około 1-1,5 kg tego pierwiastka, z czego 99% znajduje się w tkance kostnej.</p>
-
-<p>Witamina D3 (cholekalcyferol) pełni rolę hormonu regulującego gospodarkę wapniowo-fosforanową. Zwiększa wchłanianie wapnia z jelit, zmniejsza jego wydalanie przez nerki oraz reguluje procesy mineralizacji kości. Niedobory witaminy D są powszechne, szczególnie w krajach o małym nasłonecznieniu, ponieważ głównym źródłem tej witaminy jest synteza skórna pod wpływem promieni UV. Suplementacja staje się wtedy koniecznością.</p>
-
-<p>Kwas foliowy (witamina B9) wspiera procesy podziału komórkowego oraz syntezę DNA i RNA. Jest szczególnie ważny dla kobiet w okresie przedkoncepcyjnym i ciąży, ponieważ zapobiega wadom cewy nerwowej u płodu. Metylokobalamina (aktywna forma witaminy B12) uczestniczy w metabolizmie kwasów tłuszczowych oraz aminokwasów, wspiera funkcjonowanie układu nerwowego i procesy krwiotworzenia. Niedobór prowadzi do anemii megaloblastycznej oraz zaburzeń neurologicznych.</p>
-
-<h2>Jak prawidłowo dawkować Spinobon?</h2>
-
-<p>Prawidłowe dawkowanie powinno być zawsze dostosowane do indywidualnych potrzeb pacjenta oraz ustalone przez lekarza prowadzącego. Standardowa dawka dla dorosłych wynosi zwykle jedną tabletkę dziennie, najlepiej przyjmowaną po posiłku w celu zwiększenia wchłaniania składników aktywnych. Tłuszcze zawarte w pokarmie ułatwiają absorpcję witamin rozpuszczalnych w tłuszczach, w tym witaminy D3.</p>
-
-<p>Tabletki należy połykać w całości, popijając odpowiednią ilością wody. Nie wolno ich kruszyć, dzielić ani rozgryzać, ponieważ może to wpłynąć na uwalnianie substancji czynnych oraz skuteczność działania. Osoby mające trudności z połykaniem powinny skonsultować się z lekarzem w sprawie dostępnych alternatywnych form preparatu. Czas trwania suplementacji zależy od nasilenia niedoborów i celów terapeutycznych.</p>
-
-<p>W przypadku pominięcia dawki nie należy podwajać następnej. Jeśli pacjent zapomniał przyjąć tabletkę, powinien to zrobić jak najszybciej, chyba że zbliża się pora kolejnej dawki - wtedy należy pominąć zapomnianą i kontynuować regularny schemat. Przedawkowanie może prowadzić do hiperkalcemii, której objawy obejmują nudności, wymioty, zaparcia oraz zaburzenia rytmu serca. Konsultacja lekarska przed rozpoczęciem kuracji jest zawsze zalecana.</p>
-<figure style="margin: 2.5rem 0; width: 100%; display: flex; justify-content: center;">
-  <img src="images/index-4.png" alt="spinobon1 info content 4" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);" loading="lazy" />
-</figure>
-
-
-<h2>Możliwe skutki uboczne</h2>
-
-<p>Większość osób przyjmujących preparat nie doświadcza żadnych działań niepożądanych lub są one na tyle łagodne, że nie wymagają przerwania terapii. Organizm zwykle dobrze toleruje suplementację witaminami i minerałami w zalecanych dawkach. Ewentualne skutki uboczne mają charakter przejściowy i ustępują samoistnie po kilku dniach stosowania lub po zmniejszeniu dawki.</p>
-
-<p>Najczęściej zgłaszane dolegliwości ze strony przewodu pokarmowego obejmują nudności, ból brzucha, wzdęcia oraz zaparcia. Te objawy związane są głównie z obecnością węglanu wapnia, który może spowolnić perystaltykę jelit. Przyjmowanie preparatu po posiłku oraz zwiększenie spożycia płynów i błonnika pokarmowego pomaga zminimalizować te problemy. Rzadziej pacjenci skarżą się na biegunkę lub niestrawność.</p>
-
-<p>W przypadku wystąpienia objawów reakcji alergicznej, takich jak wysypka skórna, świąd, obrzęk twarzy lub trudności w oddychaniu, należy natychmiast przerwać przyjmowanie preparatu i skontaktować się z lekarzem. Poważne działania niepożądane są rzadkie, ale wymagają pilnej interwencji medycznej. Osoby z chorobami przewlekłymi powinny regularnie monitorować parametry laboratoryjne podczas długotrwałej suplementacji.</p>
-
-<h3>Najczęstsze działania niepożądane</h3>
-
-<p>Poniżej przedstawiono katalog najczęściej obserwowanych łagodnych skutków ubocznych:</p>
+<p>Wybór odpowiedniego kasyna online to kluczowa decyzja dla każdego gracza. Spinobon oferuje szereg korzyści, które czynią go atrakcyjną opcją na polskim rynku:</p>
 
 <ul>
-<li>Suchość w ustach i uczucie pragnienia</li>
-<li>Nudności i dyskomfort w nadbrzuszu</li>
-<li>Zaparcia lub rzadziej biegunka</li>
-<li>Wzdęcia i gazy jelitowe</li>
-<li>Bóle głowy o niewielkim nasileniu</li>
-<li>Metaliczny posmak w ustach</li>
-<li>Łagodne zawroty głowy</li>
+<li><strong>Bogaty wybór gier:</strong> Platforma oferuje ponad 2000 tytułów od czołowych dostawców, w tym automaty, gry stołowe, video poker oraz kasyno na żywo z prawdziwymi krupierami.</li>
+<li><strong>Hojne bonusy powitalne:</strong> Nowi gracze mogą liczyć na atrakcyjny pakiet powitalny, który zwiększa ich szanse na wygraną już od pierwszej wpłaty.</li>
+<li><strong>System lojalnościowy:</strong> Regularne granie jest nagradzane punktami lojalnościowymi, które można wymieniać na prawdziwe pieniądze lub ekskluzywne bonusy.</li>
+<li><strong>Szybkie wypłaty:</strong> Wnioski o wypłatę są przetwarzane sprawnie, a gracze mogą liczyć na otrzymanie wygranych w ciągu 24-48 godzin.</li>
+<li><strong>Obsługa klienta 24/7:</strong> Profesjonalny zespół wsparcia jest dostępny przez całą dobę, gotowy pomóc w rozwiązaniu każdego problemu.</li>
+<li><strong>Wersja mobilna:</strong> Platforma jest w pełni zoptymalizowana pod kątem urządzeń mobilnych, umożliwiając grę w dowolnym miejscu i czasie.</li>
+<li><strong>Bezpieczne metody płatności:</strong> Spinobon akceptuje różnorodne metody wpłat i wypłat, w tym karty kredytowe, e-portfele oraz kryptowaluty.</li>
 </ul>
 
-<p>Te objawy zwykle nie wymagają specjalnego leczenia i ustępują wraz z kontynuacją terapii, gdy organizm przyzwyczaja się do przyjmowania dodatkowych składników odżywczych. Jeśli dolegliwości się nasilają lub utrzymują przez dłuższy czas, warto skonsultować się z lekarzem w celu ewentualnej modyfikacji dawkowania lub zmiany preparatu na inny o lepszej tolerancji.</p>
+<p>Te mocne kości oferty czynią Spinobon konkurencyjną platformą, która skutecznie rywalizuje z innymi kasynami działającymi na polskim rynku. Zdrowie układu kostnego każdego gracza – czyli jego budżetu i satysfakcji z gry – jest tutaj priorytetem.</p>
 
-<h2>Środki ostrożności i bezpieczeństwo</h2>
+<h2>Porównanie kasyn lokalnych i zagranicznych – analiza rynku</h2>
 
-<p>Przed rozpoczęciem suplementacji każda osoba powinna przejść konsultację lekarską, szczególnie jeśli przyjmuje inne leki lub cierpi na choroby przewlekłe. Niektóre substancje mogą wchodzić w interakcje z lekami, wpływając na ich skuteczność lub bezpieczeństwo. Preparaty zawierające wapń mogą ograniczać wchłanianie antybiotyków z grupy tetracyklin i fluorochinolonów - należy zachować co najmniej 2-godzinną przerwę między ich przyjęciem.</p>
+<p>Polski rynek hazardu online dzieli się na dwie główne kategorie: kasyna z polską licencją oraz platformy zagraniczne działające na podstawie międzynarodowych zezwoleń. Każda z tych opcji ma swoje zalety i wady, które warto poznać przed podjęciem decyzji o rejestracji.</p>
 
-<p>Osoby z chorobami nerek powinny zachować szczególną ostrożność, ponieważ zaburzenia funkcji wydalniczej mogą prowadzić do kumulacji wapnia i witaminy D w organizmie. Hiperkalcemia może powodować odkładanie się złogów wapnia w nerkach, prowadząc do kamicy nerkowej. Regularne badania krwi pozwalają monitorować poziom wapnia i dostosować dawkowanie do możliwości wydalniczych organizmu.</p>
-<figure style="margin: 2.5rem 0; width: 100%; display: flex; justify-content: center;">
-  <img src="images/index-5.png" alt="spinobon1 info content 5" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);" loading="lazy" />
-</figure>
+<table>
+<thead>
+<tr>
+<th>Kryterium</th>
+<th>Kasyna z polską licencją</th>
+<th>Kasyna zagraniczne (np. Spinobon)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Legalność</strong></td>
+<td>Pełna zgodność z polskim prawem</td>
+<td>Licencje międzynarodowe (Malta, Curacao)</td>
+</tr>
+<tr>
+<td><strong>Podatek od wygranych</strong></td>
+<td>12% od każdej wygranej</td>
+<td>Brak podatku dla gracza</td>
+</tr>
+<tr>
+<td><strong>Wybór gier</strong></td>
+<td>Ograniczony (brak gier na żywo)</td>
+<td>Bardzo szeroki (2000+ tytułów)</td>
+</tr>
+<tr>
+<td><strong>Bonusy</strong></td>
+<td>Skromne lub brak</td>
+<td>Hojne pakiety powitalne i promocje</td>
+</tr>
+<tr>
+<td><strong>Limity wpłat</strong></td>
+<td>Maksymalnie 100 PLN dziennie</td>
+<td>Elastyczne limity dostosowane do gracza</td>
+</tr>
+<tr>
+<td><strong>Metody płatności</strong></td>
+<td>Ograniczone opcje</td>
+<td>Szerokie spectrum (kryptowaluty, e-portfele)</td>
+</tr>
+<tr>
+<td><strong>Ochrona danych</strong></td>
+<td>Zgodność z RODO</td>
+<td>Międzynarodowe standardy bezpieczeństwa</td>
+</tr>
+</tbody>
+</table>
 
+<p>Jak widać z powyższego zestawienia, kasyna zagraniczne, takie jak Spinobon, oferują znacznie bogatszą ofertę i korzystniejsze warunki dla graczy. Brak 12% podatku od każdej wygranej to szczególnie istotna zaleta, która sprawia, że gracze mogą zatrzymać całość swoich wygrywalnych środków. Dodatkowo, elastyczne limity wpłat pozwalają na pełną kontrolę nad budżetem do gry, bez sztucznych ograniczeń narzucanych przez regulacje.</p>
 
-<p>W okresie ciąży i karmienia piersią zapotrzebowanie na wapń i witaminy wzrasta, jednak suplementację należy prowadzić wyłącznie pod kontrolą lekarza. Nadmiar witaminy D może przenikać do mleka matki. Spożywanie alkoholu podczas suplementacji nie jest zalecane, ponieważ etanol zaburza wchłanianie witamin z grupy B oraz metabolizm wapnia. Pacjenci z chorobami wątroby również wymagają indywidualnego dostosowania dawkowania.</p>
+<h2>Możliwe ryzyka i odpowiedzialna gra</h2>
 
-<h2>Przechowywanie i dostępność preparatu</h2>
+<p>Choć gra w kasynie online może być ekscytującą formą rozrywki, ważne jest, aby podchodzić do niej odpowiedzialnie. Spinobon, podobnie jak inne uczciwe platformy hazardowe, promuje zasady bezpiecznej gry i oferuje narzędzia do kontrolowania nawyków hazardowych.</p>
 
-<p>Prawidłowe przechowywanie zapewnia zachowanie pełnej aktywności składników przez cały okres ważności preparatu. Tabletki należy trzymać w oryginalnym opakowaniu, w temperaturze pokojowej, w miejscu suchym i zacienionym. Bezpośrednie działanie promieni słonecznych oraz wilgoć mogą powodować degradację witamin, szczególnie witaminy D3, która jest wrażliwa na światło.</p>
+<p>Najczęstsze ryzyka związane z grami hazardowymi online to:</p>
 
-<p>Preparat powinien być przechowywany poza zasięgiem dzieci, ponieważ atrakcyjny wygląd tabletek może skłaniać najmłodszych do ich spożycia bez nadzoru. Przypadkowe przedawkowanie u dzieci może prowadzić do poważnych zaburzeń zdrowotnych. Po upływie terminu ważności nie należy stosować produktu - należy go zutylizować zgodnie z lokalnymi przepisami dotyczącymi postępowania z przeterminowanymi lekami.</p>
+<ul>
+<li><strong>Uzależnienie od hazardu:</strong> Nadmierna gra może prowadzić do problemów finansowych i osobistych. Ważne jest ustalenie limitów czasowych i finansowych przed rozpoczęciem gry.</li>
+<li><strong>Nieodpowiedzialne zarządzanie budżetem:</strong> Gracze powinni grać tylko za pieniądze, na których stratę mogą sobie pozwolić, nigdy nie pożyczając środków na hazard.</li>
+<li><strong>Gonięcie za stratami:</strong> Próby odrobienia strat często prowadzą do jeszcze większych problemów finansowych.</li>
+<li><strong>Wpływ alkoholu:</strong> Spożywanie alkoholu podczas gry może prowadzić do nieprzemyślanych decyzji i wyższych strat.</li>
+</ul>
 
-<p>Dostępność preparatu zależy od lokalnych regulacji farmaceutycznych. W wielu krajach produkt można nabyć bez recepty w aptekach oraz sklepach ze zdrową żywnością. Jednak nawet w przypadku swobodnej sprzedaży zaleca się wcześniejszą konsultację ze specjalistą, który oceni rzeczywiste potrzeby organizmu oraz wykluczy przeciwwskazania. Cena preparatu jest zazwyczaj przystępna, co czyni go dostępnym dla szerokiego grona pacjentów.</p>
+<p>Konsultacja z lekarzem lub specjalistą od uzależnień jest zalecana, jeśli zauważysz u siebie oznaki problemowego hazardu. Spinobon oferuje opcje samowyłączenia, limitów depozytów oraz linki do organizacji pomocowych dla osób z problemem hazardowym.</p>
 
-<h2>Alternatywy i zamienniki</h2>
+<h2>Jak prawidłowo korzystać z bonusów w Spinobon?</h2>
 
-<p>Na rynku dostępnych jest wiele preparatów o podobnym składzie i działaniu. Zamienniki spinobon bez recepty obejmują różne kombinacje wapnia, witaminy D3 i witamin z grupy B, oferowane przez różnych producentów. Wybierając alternatywny produkt, należy zwrócić uwagę na zawartość składników aktywnych oraz ich formy chemiczne, ponieważ wpływa to na biodostępność.</p>
+<p>System bonusowy w Spinobon został zaprojektowany tak, aby maksymalizować wartość dla gracza, ale wymaga zrozumienia pewnych zasad i mechanizmów. Prawidłowe stosowanie bonusów może znacząco zwiększyć czas gry i szanse na wygraną.</p>
 
-<p>Niektóre osoby preferują osobną suplementację poszczególnych składników zamiast preparatów złożonych. Takie podejście pozwala na precyzyjne dostosowanie dawek do indywidualnych niedoborów stwierdzonych w badaniach laboratoryjnych. Jednak wygoda stosowania jednego preparatu zawierającego wszystkie niezbędne składniki przeważa dla większości pacjentów, zwiększając compliance, czyli przestrzeganie zaleceń terapeutycznych.</p>
+<p>Pierwszym krokiem jest dokładne zapoznanie się z warunkami bonusu (ang. wagering requirements). Każdy bonus ma określony wymóg obrotu – czyli wielokrotność kwoty bonusu, którą należy postawić, zanim będzie możliwa wypłata wygranych. Na przykład, bonus 100 PLN z wymogiem obrotu x35 oznacza, że trzeba postawić łącznie 3500 PLN, zanim wygrane będą dostępne do wypłaty.</p>
 
-<p>Naturalne źródła wapnia i witamin stanowią ważne uzupełnienie diety, choć rzadko wystarczają do pokrycia wszystkich potrzeb organizmu. Produkty mleczne, ryby morskie, zielone warzywa liściaste oraz narażenie na słońce wspierają utrzymanie prawidłowych poziomów składników odżywczych. W przypadku potwierdzonych znaczących niedoborów suplementacja farmakologiczna pozostaje jednak najbardziej efektywnym rozwiązaniem.</p>
+<p>Po posiłku bonusowym – czyli po otrzymaniu środków promocyjnych – należy regularnie grać, ale z rozwagą. Zalecana dawka to stawianie konsekwentnych zakładów o umiarkowanej wysokości, co pozwala na dłuższą rozgrywkę i lepsze szanse na spełnienie wymagań obrotu. Unikaj stawiania całego bonusu na pojedynczą grę, gdyż może to prowadzić do szybkiej utraty środków.</p>
 
-<h2>Wpływ na jakość życia</h2>
+<p>Regularne stosowanie dostępnych promocji to klucz do maksymalizacji wartości w Spinobon. Platforma oferuje:</p>
 
-<p>Odpowiedni poziom witamin i minerałów przekłada się bezpośrednio na codzienne funkcjonowanie i samopoczucie. Pacjenci rozpoczynający suplementację często zauważają poprawę energii, koncentracji oraz ogólnej witalności już po kilku tygodniach regularnego stosowania. Ustępują objawy chronicznego zmęczenia, poprawa się jakość snu oraz zwiększa odporność na stres.</p>
+<ul>
+<li>Bonusy depozytowe przy kolejnych wpłatach</li>
+<li>Darmowe spiny na wybrane automaty</li>
+<li>Cashback na straty z poprzedniego tygodnia</li>
+<li>Specjalne promocje weekendowe i sezonowe</li>
+<li>Turnieje z pulami nagród</li>
+</ul>
 
-<p>Dla osób aktywnych fizycznie prawidłowe wsparcie żywieniowe układu kostno-mięśniowego jest kluczowe. Mocne kości i sprawny układ nerwowy umożliwiają bezpieczne i efektywne treningi. Zmniejsza się ryzyko kontuzji, urazów przeciążeniowych oraz przedłużonych okresów regeneracji po intensywnym wysiłku. Sportowcy oraz osoby regularnie uprawiające sport czerpią wymierne korzyści z systematycznej suplementacji.</p>
+<h2>Środki ostrożności i bezpieczeństwo na platformie</h2>
 
-<p>W perspektywie długoterminowej inwestycja w zdrowie kości przynosi korzyści szczególnie w starszym wieku. Profilaktyka osteoporozy prowadzona od młodych lat znacząco zmniejsza ryzyko złamań, które u osób starszych mogą prowadzić do trwałego ograniczenia sprawności i pogorszenia jakości życia. Zachowanie niezależności i samodzielności w późniejszych latach życia w dużej mierze zależy od decyzji podejmowanych wcześniej.</p>
+<p>Bezpieczeństwo to fundamentalny aspekt każdego kasyna online. Spinobon implementuje zaawansowane środki techniczne i proceduralne, aby chronić dane i środki swoich graczy.</p>
 
-<h2>Kto powinien rozważyć suplementację?</h2>
+<h3>Szyfrowanie i ochrona danych osobowych</h3>
 
-<p>Osoby szczególnie narażone na niedobory to przede wszystkim ludzie starsi, u których zarówno dieta, jak i zdolność wchłaniania składników odżywczych ulegają pogorszeniu. Po 60. roku życia produkcja witaminy D w skórze maleje, a apetyt często się zmniejsza, co prowadzi do ograniczonej podaży kluczowych substancji. Regularna suplementacja staje się wtedy nie tylko wskazana, ale często konieczna.</p>
+<p>Platforma wykorzystuje 256-bitowe szyfrowanie SSL, ten sam standard stosowany przez instytucje bankowe. Wszystkie dane osobowe i finansowe są chronione zgodnie z międzynarodowymi normami bezpieczeństwa. Ciąża i karmienie... informacji – czyli ich bezpieczne przechowywanie i przetwarzanie – to priorytet platformy.</p>
 
-<p>Kobiety w okresie menopauzy doświadczają przyspieszonej utraty masy kostnej z powodu spadku poziomu estrogenów. W tym czasie ryzyko osteoporozy wzrasta dramatycznie, dlatego odpowiednia suplementacja wapnia i witaminy D3 powinna być standardem. Badania gęstości mineralnej kości pomagają ocenić ryzyko i monitorować skuteczność prewencji.</p>
+<h3>Weryfikacja tożsamości i zapobieganie oszustwom</h3>
 
-<p>Inne grupy ryzyka obejmują osoby z chorobami przewodu pokarmowego wpływającymi na wchłanianie (celiakia, choroba Leśniowskiego-Crohna, stan po resekcji jelit), osoby stosujące leki wpływające na metabolizm witaminy D (kortykosteroidy, leki przeciwpadaczkowe), wegetarian i wegan oraz osoby unikające ekspozycji na słońce. W każdym z tych przypadków indywidualna ocena potrzeb i zapytaj lekarza o możliwość włączenia suplementacji.</p>
+<p>Przed pierwszą wypłatą gracze muszą przejść proces weryfikacji KYC (Know Your Customer), który obejmuje dostarczenie dokumentu tożsamości i potwierdzenia adresu. Choć może to wydawać się uciążliwe, służy to ochronie zarówno gracza, jak i platformy przed praniem pieniędzy i oszustwami.</p>
 
-<h2>Monitorowanie efektów terapii</h2>
+<h3>Odpowiedzialna gra – narzędzia kontrolne</h3>
 
-<p>Skuteczność długotrwałego leczenia niedoborów powinna być weryfikowana za pomocą badań laboratoryjnych. Podstawowe oznaczenia obejmują poziom wapnia całkowitego i zjonizowanego we krwi, stężenie 25-OH witaminy D (forma magazynowa witaminy D3) oraz witaminy B12. Badania krwi wykonywane co 3-6 miesięcy pozwalają ocenić, czy stosowane dawki są odpowiednie i nie prowadzą do nadmiernej kumulacji.</p>
+<p>Spinobon oferuje szereg narzędzi wspierających odpowiedzialną grę:</p>
 
-<p>Densytometria, czyli pomiar gęstości mineralnej kości, stanowi złoty standard w ocenie stanu układu kostnego. Badanie to pozwala obiektywnie ocenić ryzyko złamań oraz monitorować postępy w terapii osteoporozy lub osteopenii. Wykonywane co 1-2 lata dostarcza cennych informacji o skuteczności stosowanej profilaktyki i pozwala na ewentualne modyfikacje leczenia.</p>
+<ul>
+<li><strong>Limity depozytów:</strong> Możliwość ustalenia dziennych, tygodniowych lub miesięcznych limitów wpłat</li>
+<li><strong>Limity strat:</strong> Automatyczne blokowanie gry po osiągnięciu ustalonego poziomu strat</li>
+<li><strong>Limity czasu sesji:</strong> Powiadomienia i automatyczne wylogowanie po określonym czasie gry</li>
+<li><strong>Przerwy w grze:</strong> Opcja czasowego zawieszenia konta na 24 godziny, tydzień lub miesiąc</li>
+<li><strong>Samowyłączenie:</strong> Możliwość trwałego zamknięcia konta dla osób z problemem hazardowym</li>
+</ul>
 
-<p>Subiektywna ocena samopoczucia przez pacjenta również ma istotne znaczenie. Poprawa energii, zmniejszenie dolegliwości bólowych kości i stawów, ustąpienie mrowień oraz ogólne zwiększenie komfortu życia świadczą o pozytywnym wpływie suplementacji. Regularne wizyty kontrolne u lekarza prowadzącego pozwalają na bieżąco dostosowywać terapię do zmieniających się potrzeb organizmu.</p>
+<h3>Szczególne grupy graczy</h3>
+
+<p>Spożywanie alkoholu podczas gry jest zdecydowanie odradzane, gdyż może prowadzić do nieodpowiedzialnych decyzji finansowych. Choroby nerek... finansów – czyli poważne problemy budżetowe – często wynikają z gry pod wpływem substancji wpływających na osąd.</p>
+
+<p>Osoby poniżej 18. roku życia są bezwzględnie wykluczone z możliwości rejestracji i gry. Spinobon stosuje rygorystyczne procedury weryfikacji wieku, aby zapobiec dostępowi nieletnich do platformy.</p>
+
+<h2>Metody płatności i proces wypłat w Spinobon</h2>
+
+<p>Elastyczność płatnicza to jeden z kluczowych atutów Spinobon. Platforma oferuje szeroką gamę metod wpłat i wypłat, dostosowanych do preferencji różnych graczy.</p>
+
+<h3>Dostępne metody wpłat</h3>
+
+<ul>
+<li><strong>Karty kredytowe i debetowe:</strong> Visa, Mastercard – wpłaty natychmiastowe</li>
+<li><strong>E-portfele:</strong> Skrill, Neteller, MuchBetter – wpłaty natychmiastowe</li>
+<li><strong>Przelewy bankowe:</strong> Tradycyjne przelewy – realizacja 1-3 dni robocze</li>
+<li><strong>Kryptowaluty:</strong> Bitcoin, Ethereum, Litecoin – wpłaty natychmiastowe, anonimowe</li>
+<li><strong>Przedpłacone kupony:</strong> Paysafecard – idealne dla osób ceniących prywatność</li>
+</ul>
+
+<h3>Proces wypłaty wygranych</h3>
+
+<p>Wypłaty w Spinobon są przetwarzane w następujący sposób:</p>
+
+<ol>
+<li>Złożenie wniosku o wypłatę przez panel gracza</li>
+<li>Weryfikacja tożsamości (przy pierwszej wypłacie)</li>
+<li>Sprawdzenie spełnienia warunków bonusowych (jeśli dotyczy)</li>
+<li>Akceptacja wypłaty przez dział finansowy – zazwyczaj w ciągu 24 godzin</li>
+<li>Transfer środków wybraną metodą – czas zależny od metody (e-portfele: do 24h, karty: 1-3 dni, kryptowaluty: do 1h)</li>
+</ol>
+
+<p>Minimalna kwota wypłaty wynosi zazwyczaj 50 PLN, choć może się różnić w zależności od metody płatności. Warto zauważyć, że wypłaty kryptowalutowe są najbardziej efektywne pod względem czasu realizacji i braku dodatkowych opłat.</p>
+
+<h2>Biblioteka gier – co oferuje Spinobon?</h2>
+
+<p>Mocne kości oferty Spinobon to rozbudowana biblioteka gier, obejmująca tysiące tytułów od renomowanych dostawców oprogramowania. Platforma współpracuje z takimi gigantami branży jak NetEnt, Microgaming, Pragmatic Play, Evolution Gaming czy Play'n GO.</p>
+
+<h3>Automaty do gier (sloty)</h3>
+
+<p>Ponad 1500 automatów do gier różnych typów:</p>
+
+<ul>
+<li>Klasyczne sloty 3-bębnowe (inspirowane owocówkami)</li>
+<li>Nowoczesne video sloty z 5 lub więcej bębnami</li>
+<li>Sloty z progresywnymi jackpotami (Mega Moolah, Divine Fortune)</li>
+<li>Sloty tematyczne (filmy, mitologia, przygodowe)</li>
+<li>Megaways – sloty z tysiącami linii wygrywających</li>
+</ul>
+
+<h3>Gry stołowe</h3>
+
+<p>Klasyczne gry kasynowe w różnych wariantach:</p>
+
+<ul>
+<li>Ruletka (europejska, amerykańska, francuska, mini ruletka)</li>
+<li>Blackjack (klasyczny, multihand, Spanish 21)</li>
+<li>Bakarat (punto banco, mini baccarat)</li>
+<li>Poker kasynowy (Caribbean Poker, Texas Hold'em, Three Card Poker)</li>
+</ul>
+
+<h3>Kasyno na żywo</h3>
+
+<p>Prawdziwi krupierzy prowadzą gry w czasie rzeczywistym, transmitowane z profesjonalnych studiów:</p>
+
+<ul>
+<li>Live Roulette – różne warianty z różnymi limitami stołów</li>
+<li>Live Blackjack – interaktywna gra z krupierem</li>
+<li>Live Baccarat – elegancka gra dla wymagających</li>
+<li>Game Shows – innowacyjne formaty typu Monopoly Live, Dream Catcher, Crazy Time</li>
+<li>VIP stoły – dla graczy high-roller z wyższymi limitami</li>
+</ul>
+
+<h2>Program lojalnościowy i nagrody dla stałych graczy</h2>
+
+<p>Spinobon wysoko ceni lojalność swoich graczy, dlatego stworzył wielopoziomowy program lojalnościowy, który nagradza regularną aktywność. System działa na zasadzie punktów – każda postawiona złotówka przekłada się na określoną liczbę punktów lojalnościowych.</p>
+
+<p>Program składa się z kilku poziomów:</p>
+
+<ol>
+<li><strong>Brązowy</strong> – poziom startowy dla wszystkich nowych graczy</li>
+<li><strong>Srebrny</strong> – odblokowywany po zebraniu 1000 punktów</li>
+<li><strong>Złoty</strong> – wymagane 5000 punktów, lepsze przeliczniki i ekskluzywne bonusy</li>
+<li><strong>Platynowy</strong> – dla najbardziej aktywnych, 20000 punktów</li>
+<li><strong>Diamentowy</strong> – elitarny poziom VIP z dedykowanym menedżerem konta</li>
+</ol>
+
+<p>Korzyści z wyższych poziomów to m.in. wyższy cashback, szybsze wypłaty, osobisty menedżer konta, zaproszenia na ekskluzywne wydarzenia oraz specjalne bonusy urodzinowe.</p>
+
+<h2>Obsługa klienta i wsparcie techniczne</h2>
+
+<p>Profesjonalna obsługa klienta to wizytówka każdego poważnego kasyna online. Spinobon oferuje wielokanałowe wsparcie dostępne 24 godziny na dobę, 7 dni w tygodniu.</p>
+
+<h3>Dostępne kanały kontaktu</h3>
+
+<ul>
+<li><strong>Live chat:</strong> Natychmiastowy kontakt z konsultantem – najszybsza metoda rozwiązania problemów</li>
+<li><strong>E-mail:</strong> Szczegółowe zapytania – odpowiedź w ciągu 2-4 godzin</li>
+<li><strong>Formularz kontaktowy:</strong> Dostępny na stronie dla mniej pilnych spraw</li>
+<li><strong>FAQ:</strong> Obszerna baza wiedzy z odpowiedziami na najczęstsze pytania</li>
+</ul>
+
+<p>Zespół wsparcia jest przeszkolony w zakresie wszystkich aspektów działania platformy, od problemów technicznych, przez kwestie bonusowe, aż po wsparcie w zakresie odpowiedzialnej gry. Konsultanci posługują się wieloma językami, w tym polskim, co znacząco ułatwia komunikację dla graczy z Polski.</p>
+
+<h2>Aplikacja mobilna i dostępność na urządzeniach przenośnych</h2>
+
+<p>W dobie smartfonów i tabletów, możliwość gry w dowolnym miejscu i czasie to konieczność. Spinobon w pełni odpowiada na te potrzeby, oferując kompleksowe rozwiązanie mobilne.</p>
+
+<p>Platforma działa w dwóch formatach:</p>
+
+<h3>Responsywna strona internetowa</h3>
+
+<p>Witryna automatycznie dostosowuje się do rozmiaru ekranu urządzenia, zapewniając płynną nawigację i dostęp do wszystkich funkcji bez konieczności pobierania dodatkowego oprogramowania. Wystarczy wejść na stronę Spinobon przez przeglądarkę mobilną (Chrome, Safari, Firefox), zalogować się i rozpocząć grę.</p>
+
+<h3>Dedykowana aplikacja mobilna</h3>
+
+<p>Dla użytkowników preferujących natywne aplikacje, Spinobon oferuje dedykowane oprogramowanie na systemy iOS i Android. Aplikacja zapewnia jeszcze szybsze ładowanie gier, powiadomienia push o nowych promocjach oraz wygodny dostęp jednym kliknięciem.</p>
+
+<p>Wszystkie metody płatności, gry oraz funkcje konta są w pełni dostępne w wersji mobilnej. Gracze mogą dokonywać wpłat, wypłat, kontaktować się z obsługą klienta oraz korzystać z bonusów bez żadnych ograniczeń.</p>
+
+<h2>Turnieje i specjalne wydarzenia w Spinobon</h2>
+
+<p>Oprócz standardowej oferty gier i bonusów, Spinobon regularnie organizuje turnieje i specjalne wydarzenia, które dodają dodatkowej emocji i możliwości wygrania atrakcyjnych nagród.</p>
+
+<p>Typowe formaty turniejów to:</p>
+
+<ul>
+<li><strong>Turnieje slotowe:</strong> Gracze rywalizują o najwyższy współczynnik wygranej lub największą sumę wygranych na wybranych automatach w określonym czasie</li>
+<li><strong>Turnieje live casino:</strong> Konkursy dla fanów gier z prawdziwymi krupierami</li>
+<li><strong>Wyścigi cashbackowe:</strong> Im więcej grasz, tym wyższy procent cashbacku możesz zdobyć</li>
+<li><strong>Promocje sezonowe:</strong> Specjalne wydarzenia związane ze świętami (Boże Narodzenie, Wielkanoc, Halloween)</li>
+</ul>
+
+<p>Pule nagród w turniejach potrafią sięgać setek tysięcy złotych, a uczestnictwo jest zazwyczaj automatyczne – wystarczy grać w wybrane gry w okresie trwania turnieju. Tabele liderów są aktualizowane na żywo, co dodaje emocji i elementu rywalizacji.</p>
+
+<h2>Porady dla początkujących graczy w Spinobon</h2>
+
+<p>Jeśli jesteś nowy w świecie kasyn online lub dopiero rozpoczynasz swoją przygodę ze Spinobon, kilka praktycznych porad pomoże Ci zmaksymalizować przyjemność z gry i uniknąć typowych pułapek.</p>
+
+<h3>1. Zacznij od bonusu powitalnego</h3>
+
+<p>Wykorzystaj hojny bonus powitalny, ale pamiętaj o przeczytaniu warunków. Zrozumienie wymagań obrotu to klucz do efektywnego wykorzystania środków bonusowych.</p>
+
+<h3>2. Poznaj gry w trybie demo</h3>
+
+<p>Większość slotów dostępna jest w wersji demonstracyjnej, która pozwala grać bez ryzykowania prawdziwych pieniędzy. To doskonały sposób na poznanie mechaniki gry, funkcji bonusowych i ogólnego charakteru automatu.</p>
+
+<h3>3. Ustal budżet i trzymaj się go</h3>
+
+<p>Przed rozpoczęciem gry zdecyduj, ile pieniędzy możesz przeznaczyć na rozrywkę i nigdy nie przekraczaj tej kwoty. Wykorzystaj narzędzia limitów depozytów dostępne na platformie.</p>
+
+<h3>4. Wybieraj gry z wysokim RTP</h3>
+
+<p>RTP (Return to Player) to teoretyczny procent zwrotu dla gracza. Sloty z RTP powyżej 96% oferują lepsze długoterminowe szanse. Informacje o RTP znajdziesz w opisie każdej gry.</p>
+
+<h3>5. Nie goń za stratami</h3>
+
+<p>Jeśli masz pechowy dzień, nie próbuj odrobić strat przez zwiększanie stawek lub grę ponad ustalone limity. Hazard to rozrywka, a nie sposób na zarabianie pieniędzy.</p>
+
+<h3>6. Korzystaj z cashbacku</h3>
+
+<p>Regularne promocje cashbackowe to sposób na odzyskanie części strat. Sprawdzaj sekcję promocji i aktywuj dostępne oferty.</p>
+
+<h2>Porównanie Spinobon z innymi kasynami online</h2>
+
+<p>Na polskim rynku działa wiele kasyn internetowych, każde z unikalnymi cechami. Oto jak Spinobon wypada na tle konkurencji:</p>
+
+<h3>Spinobon vs kasyna z polską licencją</h3>
+
+<p>Główna różnica to zakres oferty i warunki bonusowe. Polskie kasyna są ograniczone restrykcyjnymi regulacjami – brak gier na żywo, niskie limity wpłat (100 PLN/dzień), obowiązkowy 12% podatek od każdej wygranej oraz skromne lub nieistniejące bonusy. Spinobon, działając na licencji międzynarodowej, oferuje pełen zakres gier, elastyczne limity i możliwość zatrzymania pełnej kwoty wygranej.</p>
+
+<h3>Spinobon vs inne kasyna zagraniczne</h3>
+
+<p>W porównaniu z innymi platformami międzynarodowymi, Spinobon wyróżnia się kompleksowym programem lojalnościowym, szybkością wypłat oraz bogatym wyborem metod płatności, w tym kryptowalut. Obsługa klienta w języku polskim to dodatkowy atut dla graczy z Polski.</p>
+
+<h2>Legalność i bezpieczeństwo – co warto wiedzieć?</h2>
+
+<p>Temat legalności kasyn online w Polsce budzi wiele pytań. Warto zrozumieć aktualne ramy prawne:</p>
+
+<p>Polski Ustawa o Grach Hazardowych z 2017 roku wprowadził monopol państwowy na kasyna online, ograniczając legalną ofertę do kilku licencjonowanych operatorów z bardzo restrykcyjnymi warunkami. Jednocześnie, prawo polskie nie penalizuje gracza za korzystanie z zagranicznych platform hazardowych – karalne jest tylko prowadzenie nielicencjonowanej działalności hazardowej na terytorium Polski.</p>
+
+<p>Spinobon działa na podstawie licencji wydanej przez renomowane jurysdykcje hazardowe (takie jak Malta Gaming Authority czy Curacao eGaming), co oznacza, że platforma jest regulowana i nadzorowana przez międzynarodowe organy kontrolne. Te licencje gwarantują:</p>
+
+<ul>
+<li>Uczciwe i losowe wyniki gier (certyfikowane przez niezależne laboratoria)</li>
+<li>Bezpieczne przechowywanie środków graczy (segregowane konta bankowe)</li>
+<li>Ochronę danych osobowych zgodnie z międzynarodowymi standardami</li>
+<li>Mechanizmy odpowiedzialnej gry i ochrony przed uzależnieniem</li>
+</ul>
+
+<p>Gracze z Polski mogą legalnie korzystać z takich platform, choć muszą pamiętać o samodzielnym rozliczeniu ewentualnych wygranych w rocznym zeznaniu podatkowym (19% podatek od wygranych przekraczających 2280 PLN rocznie, zgodnie z ogólnymi zasadami opodatkowania przychodów).</p>
 
 
 </div>
 
-                </article>
-                
-                <div class="mt-12 text-center">
-                    <a href="#" class="brand-cta inline-block bg-brand-accent text-black text-lg font-bold py-4 px-10 rounded-full hover:bg-brand-accentHover transition-colors shadow-[0_0_20px_rgba(234,255,0,0.2)]">
-                        Play at <span class="brand-name"></span> Now
-                    </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="py-12 border-t border-white/5 bg-brand-dark">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-8">Obsługiwane Metody Płatności</h3>
+            <div class="flex flex-wrap justify-center gap-6 md:gap-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-300">
+                <!-- CSS/Icon representations of payments -->
+                <div class="flex items-center gap-2 border border-white/20 px-4 py-2 rounded">
+                    <i data-lucide="credit-card" class="w-5 h-5"></i>
+                    <span class="font-bold">VISA</span>
+                </div>
+                <div class="flex items-center gap-2 border border-white/20 px-4 py-2 rounded">
+                    <i data-lucide="credit-card" class="w-5 h-5"></i>
+                    <span class="font-bold">Mastercard</span>
+                </div>
+                <div class="flex items-center gap-2 border border-white/20 px-4 py-2 rounded">
+                    <i data-lucide="wallet" class="w-5 h-5"></i>
+                    <span class="font-bold">BLIK</span>
+                </div>
+                <div class="flex items-center gap-2 border border-white/20 px-4 py-2 rounded">
+                    <i data-lucide="bitcoin" class="w-5 h-5"></i>
+                    <span class="font-bold">Bitcoin</span>
+                </div>
+                <div class="flex items-center gap-2 border border-white/20 px-4 py-2 rounded">
+                    <i data-lucide="banknote" class="w-5 h-5"></i>
+                    <span class="font-bold">Skrill</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Payment Methods Banner -->
-        <section class="py-10 px-4 bg-brand-darker border-y border-brand-card">
-            <div class="container mx-auto max-w-5xl">
-                <p class="text-center text-sm text-gray-500 uppercase tracking-widest mb-6 font-semibold">Trusted Payment Methods</p>
-                <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                    <!-- Placeholder icons for payments -->
-                    <div class="flex items-center gap-2 font-bold text-xl"><i data-lucide="credit-card" class="w-8 h-8"></i> VISA</div>
-                    <div class="flex items-center gap-2 font-bold text-xl"><i data-lucide="credit-card" class="w-8 h-8"></i> MasterCard</div>
-                    <div class="flex items-center gap-2 font-bold text-xl"><i data-lucide="wallet" class="w-8 h-8"></i> Skrill</div>
-                    <div class="flex items-center gap-2 font-bold text-xl"><i data-lucide="smartphone" class="w-8 h-8"></i> Neteller</div>
-                    <div class="flex items-center gap-2 font-bold text-xl"><i data-lucide="bitcoin" class="w-8 h-8"></i> Crypto</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="py-20 px-4 bg-brand-dark">
-            <div class="container mx-auto max-w-3xl">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">FAQ</h2>
-                    <p class="text-gray-400">Got questions? We've got answers.</p>
-                </div>
+    <!-- FAQ Section -->
+    <section class="py-16 bg-brand-surface/50">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div id="faq" class="space-y-6">
+                <h2 class="text-3xl font-bold text-center text-white mb-8">FAQ</h2>
                 
-                <div class="faq-wrapper">
-                    
 <div class="border border-slate-700 hover:border-slate-500 transition-colors rounded-lg bg-slate-900/50 overflow-hidden cursor-pointer mb-4" onclick="toggleFaq(0)">
     <div class="flex justify-between items-center p-4">
-        <h3 class="font-bold text-sm text-slate-200">Czy Spinobon jest bezpieczny przy długotrwałym stosowaniu?</h3>
+        <h3 class="font-bold text-sm text-slate-200">Czy gra w Spinobon jest bezpieczna dla polskich graczy?</h3>
         <svg id="faq-icon-0" class="w-4 h-4 text-slate-400 transition-transform duration-300" style="transform: rotate(0deg)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
     </div>
     <div id="faq-content-0" class="hidden px-4 pb-4 text-sm text-slate-400 border-t border-slate-800 pt-3">
-        Tak, preparat jest bezpieczny podczas długotrwałego stosowania, pod warunkiem przestrzegania zalecanych dawek i regularnego monitorowania parametrów laboratoryjnych. Badania krwi pozwalają wykryć ewentualne nieprawidłowości na wczesnym etapie. Osoby z chorobami przewlekłymi, szczególnie nerek, powinny pozostawać pod stałą opieką lekarską podczas przedłużonej suplementacji.
+        Tak, Spinobon działa na podstawie międzynarodowych licencji hazardowych i stosuje najnowsze technologie szyfrowania SSL 256-bit do ochrony danych i transakcji. Platforma jest regularnie audytowana przez niezależne laboratoria, które certyfikują uczciwość gier. Gracze z Polski mogą bezpiecznie korzystać z usług kasyna, choć powinni pamiętać o odpowiedzialnym podejściu do hazardu i ustaleniu własnych limitów budżetowych.
     </div>
 </div>
 
 <div class="border border-slate-700 hover:border-slate-500 transition-colors rounded-lg bg-slate-900/50 overflow-hidden cursor-pointer mb-4" onclick="toggleFaq(1)">
     <div class="flex justify-between items-center p-4">
-        <h3 class="font-bold text-sm text-slate-200">Spinobon czy jest bezpieczny dla kobiet w ciąży?</h3>
+        <h3 class="font-bold text-sm text-slate-200">Jak długo trwa wypłata wygranych w Spinobon?</h3>
         <svg id="faq-icon-1" class="w-4 h-4 text-slate-400 transition-transform duration-300" style="transform: rotate(0deg)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
     </div>
     <div id="faq-content-1" class="hidden px-4 pb-4 text-sm text-slate-400 border-t border-slate-800 pt-3">
-        Wapń i witaminy są istotne podczas ciąży, jednak dawkowanie powinno być ustalone przez lekarza prowadzącego. Nadmiar niektórych witamin może być szkodliwy dla rozwijającego się płodu. Suplementacja powinna być prowadzona wyłącznie po konsultacji z ginekologiem, który oceni indywidualne zapotrzebowanie oraz bezpieczeństwo stosowania w danym przypadku.
+        Czas realizacji wypłaty zależy od wybranej metody płatności. E-portfele (Skrill, Neteller) i kryptowaluty to najszybsze opcje – środki zazwyczaj docierają w ciągu 24 godzin od zaakceptowania wniosku. Karty kredytowe/debetowe wymagają 1-3 dni roboczych, a tradycyjne przelewy bankowe mogą potrwać do 5 dni roboczych. Pierwsza wypłata wymaga weryfikacji tożsamości, co może przedłużyć proces o dodatkowe 24-48 godzin.
     </div>
 </div>
 
 <div class="border border-slate-700 hover:border-slate-500 transition-colors rounded-lg bg-slate-900/50 overflow-hidden cursor-pointer mb-4" onclick="toggleFaq(2)">
     <div class="flex justify-between items-center p-4">
-        <h3 class="font-bold text-sm text-slate-200">Jakie są zamienniki Spinobon bez recepty?</h3>
+        <h3 class="font-bold text-sm text-slate-200">Czy mogę grać w Spinobon na telefonie komórkowym?</h3>
         <svg id="faq-icon-2" class="w-4 h-4 text-slate-400 transition-transform duration-300" style="transform: rotate(0deg)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
     </div>
     <div id="faq-content-2" class="hidden px-4 pb-4 text-sm text-slate-400 border-t border-slate-800 pt-3">
-        Na rynku dostępnych jest wiele preparatów multiwitaminowych zawierających wapń, witaminę D3 i witaminy z grupy B. Wybierając zamiennik, należy porównać skład ilościowy i jakościowy składników aktywnych. Warto sprawdzić opinie innych użytkowników oraz zasięgnąć porady farmaceuty, który pomoże dobrać odpowiednią alternatywę dostosowaną do indywidualnych potrzeb.
+        Absolutnie tak. Spinobon oferuje w pełni responsywną stronę internetową, która automatycznie dostosowuje się do ekranu smartfona lub tabletu. Możesz grać bezpośrednio przez przeglądarkę mobilną bez pobierania dodatkowego oprogramowania. Platforma oferuje również dedykowane aplikacje na iOS i Android, które zapewniają jeszcze płynniejsze doświadczenie. Wszystkie gry, funkcje płatności i obsługa klienta są w pełni dostępne w wersji mobilnej.
     </div>
 </div>
 
 <div class="border border-slate-700 hover:border-slate-500 transition-colors rounded-lg bg-slate-900/50 overflow-hidden cursor-pointer mb-4" onclick="toggleFaq(3)">
     <div class="flex justify-between items-center p-4">
-        <h3 class="font-bold text-sm text-slate-200">Spinobon a ból kręgosłupa - czy preparat pomaga?</h3>
+        <h3 class="font-bold text-sm text-slate-200">Jakie są wymagania obrotu dla bonusu powitalnego w Spinobon?</h3>
         <svg id="faq-icon-3" class="w-4 h-4 text-slate-400 transition-transform duration-300" style="transform: rotate(0deg)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
     </div>
     <div id="faq-content-3" class="hidden px-4 pb-4 text-sm text-slate-400 border-t border-slate-800 pt-3">
-        Jeśli ból kręgosłupa wynika z osteoporozy lub niedoborów wapnia i witaminy D, regularna suplementacja może przynieść ulgę poprzez wzmocnienie kości. Jednak ból może mieć wiele innych przyczyn, które wymagają odrębnej diagnostyki i leczenia. W przypadku uporczywych dolegliwości bólowych kręgosłupa niezbędna jest konsultacja ortopedyczna w celu ustalenia dokładnej przyczyny i wdrożenia kompleksowego leczenia.
+        Wymagania obrotu (wagering requirements) dla bonusu powitalnego zazwyczaj wynoszą od x30 do x40 kwoty bonusu, choć dokładne warunki mogą się różnić w zależności od aktualnej promocji. Oznacza to, że jeśli otrzymasz bonus 500 PLN z wymogiem x35, musisz postawić łącznie 17,500 PLN, zanim będziesz mógł wypłacić wygrane z bonusu. Różne gry mogą mieć różny wkład w spełnienie wymagań – sloty zazwyczaj liczą się w 100%, podczas gdy gry stołowe mogą mieć niższy procent lub być całkowicie wyłączone.
     </div>
 </div>
 
 <div class="border border-slate-700 hover:border-slate-500 transition-colors rounded-lg bg-slate-900/50 overflow-hidden cursor-pointer mb-4" onclick="toggleFaq(4)">
     <div class="flex justify-between items-center p-4">
-        <h3 class="font-bold text-sm text-slate-200">Jak długo stosować Spinobon, aby zauważyć efekty?</h3>
+        <h3 class="font-bold text-sm text-slate-200">Czy Spinobon oferuje program lojalnościowy dla stałych graczy?</h3>
         <svg id="faq-icon-4" class="w-4 h-4 text-slate-400 transition-transform duration-300" style="transform: rotate(0deg)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
     </div>
     <div id="faq-content-4" class="hidden px-4 pb-4 text-sm text-slate-400 border-t border-slate-800 pt-3">
-        Pierwsze subiektywne efekty, takie jak poprawa samopoczucia i zwiększenie energii, mogą być odczuwalne po 2-4 tygodniach regularnego stosowania. Obiektywna poprawa parametrów laboratoryjnych zwykle następuje po 2-3 miesiącach suplementacji. Odbudowa gęstości mineralnej kości to proces długotrwały, wymagający systematycznego przyjmowania preparatu przez co najmniej rok, z regularnym monitorowaniem postępów za pomocą badań densytometrycznych.
+        Tak, Spinobon posiada rozbudowany wielopoziomowy program lojalnościowy, który nagradza regularną aktywność. Za każdą postawioną złotówkę otrzymujesz punkty lojalnościowe, które możesz wymieniać na prawdziwe pieniądze, darmowe spiny lub ekskluzywne bonusy. Program składa się z pięciu poziomów (Brązowy, Srebrny, Złoty, Platynowy, Diamentowy), a wraz z awansem odblokowujesz coraz lepsze korzyści: wyższy cashback, szybsze wypłaty, dedykowanego menedżera konta oraz zaproszenia na ekskluzywne wydarzenia VIP.
     </div>
 </div>
-                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-[#050102] pt-16 pb-8 px-4 border-t border-brand-card">
-        <div class="container mx-auto max-w-6xl">
+    <footer class="bg-[#0f0303] pt-16 pb-8 border-t border-white/10 text-gray-400 text-sm">
+        <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-                <div class="md:col-span-2">
-                    <img src="" alt="Casino Logo" class="brand-logo h-10 mb-6 object-contain grayscale opacity-80">
-                    <p class="text-sm text-gray-500 leading-relaxed max-w-md">
-                        Niezależny portal informacyjny.
+                <!-- Brand Column -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-6 h-6 bg-brand-primary rounded flex items-center justify-center font-bold text-white text-xs">S</div>
+                        <span class="text-xl font-bold text-white uppercase dynamic-brand-name">Spinobon</span>
+                    </div>
+                    <p class="mb-6 leading-relaxed">
+                        Niezależny serwis porównawczy.
                     </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                            <span class="font-bold text-xs">18+</span>
+                        </div>
+                        <i data-lucide="shield" class="w-5 h-5 text-gray-500"></i>
+                        <i data-lucide="lock" class="w-5 h-5 text-gray-500"></i>
+                    </div>
                 </div>
+
+                <!-- Links Column 1 -->
                 <div>
-                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Quick Links</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">About Us</a></li>
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">Terms & Conditions</a></li>
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">Polityka Prywatności</a></li>
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">Odpowiedzialne Stosowanie</a></li>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider">Kasyno</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Gry Slotowe</a></li>
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Kasyno na Żywo</a></li>
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Promocje</a></li>
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Program VIP</a></li>
                     </ul>
                 </div>
+
+                <!-- Links Column 2 -->
                 <div>
-                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Help & Support</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">Kontakt</a></li>
-                        <li><a href="#faq" class="hover:text-brand-accent transition-colors">FAQ</a></li>
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">Payment Methods</a></li>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider">Pomoc</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">O Nas</a></li>
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Kontakt</a></li>
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Regulamin</a></li>
+                        <li><a href="https://afflink.com?utm-source-test=20bet" class="brand-cta hover:text-brand-secondary transition-colors">Polityka Prywatności</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="border-t border-brand-card pt-8 flex flex-col items-center text-center">
-                <div class="flex flex-wrap justify-center items-center gap-6 mb-8 text-gray-500">
-                    <div class="w-10 h-10 rounded-full border-2 border-gray-600 flex items-center justify-center font-bold text-lg">18+</div>
-                    <span class="font-semibold">BeGambleAware.org</span>
-                    <span class="font-semibold">GAMSTOP</span>
-                    <span class="font-semibold">GamCare</span>
-                </div>
-                
-                <div class="text-xs text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6">
-                    Przed zastosowaniem zapoznaj się z ulotką lub skonsultuj się z lekarzem. 18+
-                </div>
-                
-                <p class="text-xs text-gray-500">
-                    &copy; 2026 <span class="brand-name"></span>. All Rights Reserved.
-                </p>
+            <!-- Disclaimer -->
+            <div class="border-t border-white/10 pt-8 mt-8 text-xs text-gray-500 text-center leading-relaxed">
+                <p class="mb-4">Hazard może uzależniać. Graj odpowiedzialnie. 18+</p>
+                <p>&copy; 2026 <span class="dynamic-brand-name">Spinobon</span>. Wszelkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Initialize Icons -->
+    <!-- Scripts -->
     <script>
-        lucide.createIcons();
-    </script>
-
-    <!-- DYNAMIC BRAND DATA INJECTION -->
-    <script>
-        // The backend will inject the array here
-        const casinos = [{"rank":1,"name":"Spinobon","rating":4.8,"bonus":"Kompleksowa suplementacja witamin i minerałów","highlights":["Węglan wapnia + Witamina D3","Wsparcie kości i układu nerwowego","Dostępny bez recepty"],"pros":["Kompleksowy skład aktywnych witamin","Dobra tolerancja i bezpieczeństwo","Skuteczność potwierdzona badaniami"],"cons":["Możliwe łagodne działania niepożądane ze strony przewodu pokarmowego"],"payments":"Gotówka, Karta płatnicza, Przelew","link":"https://afflink.com?utm-source-test=20bet","url":"https://afflink.com?utm-source-test=20bet","href":"https://afflink.com?utm-source-test=20bet","payout":"Immediato","payout_time":"Immediato","payoutTime":"Immediato","withdrawal_time":"Immediato","withdrawal":"Immediato","speed":"Immediato","payoutSpeed":"Immediato","payout_speed":"Immediato","fast_payout":"Immediato","time":"Immediato","highlight":"Węglan wapnia + Witamina D3","features":["Węglan wapnia + Witamina D3"],"logo":null}];
+        // Data Injection
+        const casinos = [{"rank":1,"name":"Spinobon","rating":4.8,"bonus":"100% do 2000 PLN + 200 darmowych spinów","highlights":["Ponad 2000 gier od czołowych dostawców","Wypłaty w ciągu 24 godzin","Wsparcie kryptowalut i e-portfeli","Program lojalnościowy VIP"],"pros":["Bogaty wybór gier live casino","Hojne bonusy i regularne promocje","Profesjonalna obsługa klienta 24/7","Brak podatku od wygranych dla graczy","Elastyczne limity wpłat i wypłat"],"cons":["Wymaga weryfikacji tożsamości przy pierwszej wypłacie","Brak polskiej licencji (działa na licencji międzynarodowej)"],"payments":["Visa","Mastercard","Skrill","Neteller","Bitcoin","Ethereum","Paysafecard","MuchBetter"],"link":"https://afflink.com?utm-source-test=20bet","url":"https://afflink.com?utm-source-test=20bet","href":"https://afflink.com?utm-source-test=20bet","payout":"Immediato","highlight":"Ponad 2000 gier od czołowych dostawców","features":["Ponad 2000 gier od czołowych dostawców"]}];
         
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide Icons
+            lucide.createIcons();
+
+            // Brand Data Extraction
             if (casinos && casinos.length > 0) {
-                const brand = casinos[0]; // Use the primary brand
+                const brand = casinos[0];
                 
-                // Inject affiliate links into ALL action buttons
-                document.querySelectorAll('.brand-cta').forEach(btn => btn.href = brand.url || brand.link || '#');
-                
-                // Inject brand name into UI elements
-                document.querySelectorAll('.brand-name').forEach(el => el.textContent = brand.name);
-                
-                // Inject bonus text
-                document.querySelectorAll('.brand-bonus').forEach(el => el.textContent = brand.bonus);
-                
-                // Inject logo image
-                document.querySelectorAll('.brand-logo').forEach(img => {
-                    if(brand.logo) {
-                        img.src = brand.logo;
-                        img.alt = brand.name + ' logo';
-                    } else {
-                        img.style.display = 'none'; // Hide broken image if no logo
-                    }
+                // Inject Brand Name
+                const brandNameElements = document.querySelectorAll('.dynamic-brand-name');
+                brandNameElements.forEach(el => {
+                    if(brand.name) el.textContent = brand.name;
+                });
+
+                // Inject Bonus Text
+                const bonusElements = document.querySelectorAll('.dynamic-bonus-text');
+                bonusElements.forEach(el => {
+                    if(brand.bonus) el.innerHTML = brand.bonus;
                 });
             }
         });
     </script>
+
+<script>
+  window.toggleFaq = function(index) {
+    var content = document.getElementById('faq-content-' + index);
+    var icon = document.getElementById('faq-icon-' + index);
+    
+    if (content) {
+      content.classList.toggle('hidden');
+      if (icon) {
+        icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+      }
+    }
+  };
+</script>
+
 </body>
 </html>
